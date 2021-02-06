@@ -1,0 +1,43 @@
+# The URL the site will be built for
+base_url = "https://novakov-alexey.github.io"
+title = "Alexey Novakov"
+
+description = "Alexey Novakov: Software Engineering Notes"
+
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+theme = "DeepThought"
+
+taxonomies = [
+	{ name = "categories", feed = true, paginate_by = 10 },
+	{ name = "tags", fees = true, paginate_by = 10 },
+]
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+highlight_theme = "dracula"
+
+
+[extra]
+# Put all your custom variables here
+navbar_items = [
+    { url = "$BASE_URL/", name = "Blog" },
+	{ url = "$BASE_URL/cv", name = "CV" },	
+	{ url = "$BASE_URL/presentations", name = "Presentations" },	
+	{ url = "$BASE_URL/tags", name = "Tags" },
+	{ url = "$BASE_URL/categories", name = "Categories" },
+]
+
+[extra.social]
+github = "novakov-alexey" # case does not matter
+twitter = "alexey_novakov"
+linkedin = "alexey-novakov-26468624"
+
+[extra.author]
+name = "Alexey Novakov"
