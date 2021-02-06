@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://novakov-alexey.github.io"
+base_url = "https://novakov-alexey.github.io/new-blog"
 title = "Alexey Novakov"
 
 description = "Alexey Novakov: Software Engineering Notes"
