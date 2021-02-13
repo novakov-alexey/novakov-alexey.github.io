@@ -429,7 +429,7 @@ logging folder. Eventually, our model loss value is going to be stable, i.e. not
 `TensorFlow Scala` is a fantastic library that mimics most of `TensorFlow` core library and Python API.
 Although current library is missing some documentations, one can always use official TensorFlow documentation web-site to get an idea of the Scala API.
 
-Implemented ANN in `TensorFlow Scala` shows that one can use Scala to train Deep Learning models easily. Training program in Scala are going to be quite declarative and statically type-checked which eliminates lots of mistakes. Library APIs also allows to extend any most of abstractions, which is very important for real-life use cases.
+Implemented ANN in `TensorFlow Scala` shows that one can use Scala to train Deep Learning models easily. Training program in Scala are going to be quite declarative and statically type-checked which eliminates lots of mistakes. Library API also allows to extend most of the abstractions, which is very important for real life use cases.
 
 # Source Code
 
