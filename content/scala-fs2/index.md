@@ -36,7 +36,8 @@ Computes a prefix scan of the elements of the collection.
 Hm, what this would mean? It is much easier to try it and see how it works.
 
 Here is [visual diagram](https://superruzafa.github.io/visual-scala-reference/scanLeft) for scan:
-<img src="/img/blog/scanLeft.svg">
+
+![scanleft](https://novakov-alexey.github.io/scala-fs2/scanLeft.svg)
 
 Let’s try with simple List using Scala REPL.
 
