@@ -284,6 +284,7 @@ val estimator = tf.learn.InMemoryEstimator(
   Set(
     tf.learn.LossLogger(trigger = tf.learn.StepHookTrigger(100)),
     tf.learn.Evaluator(
+      summaryDir = summariesDir,
       log = true,
       datasets = Seq(("Train", () => evalTrainData), ("Test", () => evalTestData)),
       metrics = Seq(accMetric),
@@ -420,9 +421,11 @@ TensorFlow starts a web-app at `localhost` on port `6006` and using data from th
 
 Log directory accumulates TensorFlow logs between training cycles, so that if we run training
 cycle again and again we can see that estimator variables (graph state) is restored from that
-logging folder. Eventually, our model loss value is going to be stable, i.e. not improving anymore.
+logging folder. Eventually, our model loss and accuracy metric values are going to be stable, i.e. not improving anymore.
 
-{{ resize_image(path="tensorflow-scala/tensorboard.png", width=800, height=600, op="fit") }}
+{{ resize_image(path="tensorflow-scala/tf-board-loss.png", width=800, height=600, op="fit") }}
+
+{{ resize_image(path="tensorflow-scala/tf-board-accuracy.png", width=800, height=600, op="fit") }}
 
 # Summary
 
