@@ -1,6 +1,6 @@
 +++
 title="TensorFlow Scala - Linear Regression via ANN"
-date=2021-02-12
+date=2021-02-13
 draft = false
 
 [extra]
@@ -431,3 +431,7 @@ Although current library is missing some documentations, one can always use offi
 
 Implemented ANN in `TensorFlow Scala` shows that one can use Scala to train Deep Learning models easily. Training program in Scala are going to be quite declarative and statically type-checked which eliminates lots of mistakes. Library APIs also allows to extend any most of abstractions, which is very important for real-life use cases.
 
+# Source Code
+
+Full source code as SBT project can be found here: 
+- [https://github.com/novakov-alexey/tensorflow-scala-example](https://github.com/novakov-alexey/tensorflow-scala-example)
