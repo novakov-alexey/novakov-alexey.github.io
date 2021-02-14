@@ -124,6 +124,36 @@
 {% endblock %}
 
 {% block comment %}
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <div id="disqus_thread"></div>
+      </div>
+    </div>
+  </div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+      this.page.url = '{{ page.permalink }}';  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = '{{ page.slug }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-novakov-alexey-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+{% endblock %}
+
+{% block comment2 %}
 {% if page.extra.comments and config.extra.commenting.hyvor %}
 <section class="section">
   <div class="container">
