@@ -175,11 +175,11 @@ These parameters are the heart of the model. They are mutating on every training
 Before designing neural network training API, let's look at entities we need:
 
 ```scala
-sealed trait ActivationFunc[T] extends (Tensor[T] => Tensor[T]):
+trait ActivationFunc[T] extends (Tensor[T] => Tensor[T]):
   def apply(x: Tensor[T]): Tensor[T]
   def derivative(x: Tensor[T]): Tensor[T]
 
-sealed trait Loss[T]:
+trait Loss[T]:
   def apply(actual: Tensor[T], predicted: Tensor[T]): T
 
 sealed trait Layer[T]:
