@@ -148,8 +148,8 @@ Full code of data preparation that includes:
 
 see here:
 
--   [encoders](https://github.com/novakov-alexey/tensorflow-scala-example/blob/main/src/main/scala/encoders.scala)
--   [TextLoader](https://github.com/novakov-alexey/tensorflow-scala-example/blob/main/src/main/scala/TextLoader.scala) 
+-   [encoders](https://github.com/novakov-alexey/tensorflow-scala-example/blob/main/src/main/scala/tensorflow/tutorial/encoders.scala)
+-   [TextLoader](https://github.com/novakov-alexey/tensorflow-scala-example/blob/main/src/main/scala/tensorflow/tutorial/TextLoader.scala) 
 
 # Model Assembly
 
