@@ -119,9 +119,9 @@ Basic idea of neural network implementation is to leverage math principals for m
 It is one data record:
 
 1. x: 12 input columns as 1 x 12 matrix
-1. w1: 12 x 6 matrix + 6 x 1 matrix for baises
-1. w2: 6 x 6 matrix + 6 x 1 matrix for baises
-1. w3: 6 x 1 matrix + 1 x 1 matrix for baises
+1. w1: 12 x 6 matrix + 6 x 1 matrix for biases
+1. w2: 6 x 6 matrix + 6 x 1 matrix for biases
+1. w3: 6 x 1 matrix + 1 x 1 matrix for biases
 1. yHat: scalar number
 
 An amount of hidden layers and neurons are parameters to be tuned by an expert, i.e. externally to the main algorithm. 
@@ -133,9 +133,9 @@ is single neuron that produces final prediction, which we will treat as `yes` or
 Mini-batch approach, i.e. multiple training examples at once. Batch size to be tuned externally as well. Let's take 16 as batch size:
 
 1. x: 16 x 12 matrix
-1. w1: 12 x 6 matrix + 6 x 1 matrix for baises
-1. w2: 6 x 6 matrix + 6 x 1 matrix for baises
-1. w3: 6 x 1 matrix + 1 x 1 matrix for baises
+1. w1: 12 x 6 matrix + 6 x 1 matrix for biases
+1. w2: 6 x 6 matrix + 6 x 1 matrix for biases
+1. w3: 6 x 1 matrix + 1 x 1 matrix for biases
 1. yHat: 16 x 1 matrix
 
 As you can see, our matrices are equal in rows at input and output layers.
