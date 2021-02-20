@@ -1,7 +1,7 @@
 +++
-title="Linear Regression using Neural Network"
+title="Linear Regression with Gradient Descent"
 date=2021-02-20
-draft = true
+draft = false
 
 [extra]
 category="blog"
@@ -12,19 +12,25 @@ tags = ["deep learning", "machine learning", "linear regression"]
 categories = ["scala"]
 +++
 
-In this article we are going to use [mini-library in Scala](/ann-in-scala-2) for Deep Learning
+In this article we are going to use [Scala mini-library](/ann-in-scala-2) for Deep Learning
 that we developed earlier in order to study basic linear regression task. 
-We will learn model weigths using perceptron model, which will be our single unit network layer that emits target value. 
+We will learn model weights using perceptron model, which will be our single unit network layer that emits target value. 
 This model will predict a target value `yHat` based on two trained parameters: weight and bias. Both are scalar numbers.
+Weights optimization is going to be based on implemented Gradient descent algorithm:
+
+- [Gradient Descent Optimization](/ann-in-scala-1/#gradient-descent-optimization)
+- [Training Loop](/ann-in-scala-2/#training-loop)
+
+Model equation:
 
 ```scala
 y = bias + weight * x
 ```
-
+<!-- more -->
 # Data Preparation
 
 Our goal is to show that perceptron model can learn the parameters, so that we can generate fake data using
-uniformly distribured random generator:
+uniformly distributed random generator:
 
 ```scala
 import scala.util.Random
@@ -50,11 +56,11 @@ val y = Tensor1D(yBatch.toArray)
 val ((xTrain, xTest), (yTrain, yTest)) = (x, y).split(0.2f)
 ```
 
-We have prepared two datasets: 8000 data samples for train and 2000 samples for test cycles.
+We have just prepared two datasets: `8000` data samples for train and `2000` samples for test cycles.
 
 # Model Training
 
-First, we initialize sequential model for just one dense layer with single unit which is going to be a perceptron model.
+First, we initialise sequential model for just one dense layer with single unit which is going to be a perceptron model.
 
 ```scala
 val ann = Sequential[Double, SimpleGD](
@@ -65,7 +71,7 @@ val ann = Sequential[Double, SimpleGD](
 ).add(Dense())
 ```
 
-In order to avoid exploding gradient values, we also set grading clipping value, so that whenever our gradient is not
+In order to avoid exploding gradient values, we also set __grading clipping__ value, so that whenever our gradient is not
 in `-5;5` numeric range it will be clipped to left or right boundary accordingly.
 
 Let's start training and see if real weight and bias which we used to generate fake data are learnt by the 
@@ -106,7 +112,7 @@ epoch: 199/200, avg. loss: 0.005119443405419588
 epoch: 200/200, avg. loss: 0.005119443405419588
 ```
 
-I have cut the middle part of the output, but it does not hard to see the progress.
+I have cut the middle part of the output, but it is not hard to see the progress.
 
 Latest model weights:
 
@@ -125,11 +131,16 @@ true weight: 0.7220096
 true bias: 0.7346627
 ```
 
-It is quite close, but not extactly the same. 
-I have done that by intention by settings slow learningRate as `0.00005f`. If we set it to bigger value, it will be
-closer to true weights.
+Numers are quite close to true numbers, but not exactly the same. 
+I have set small/slow `learningRate` as `0.00005f` by intention, so that our learning metrics
+will be smoother on the future plots. If we set `learningRate` to bigger value, it will be
+closer to true weights. 
+
+_When I write `weights` I often mean `bias` and `weight` parameters in the same time._
 
 # Test dataset
+
+We have `2000` data samples for model testing, let's what the error on predicting target values using unseen data:
 
 ```scala
 val testPredicted = model.predict(xTest)  
@@ -137,7 +148,7 @@ val value = meanSquareError[Double].apply(yTest.T, testPredicted)
 println(s"test meanSquareError = $value")
 ```
 
-Loss value on test is quite close to training loss:
+Loss value on test is quite close to training loss, so the learnt model is fine and we can continue:
 
 ```bash
 test meanSquareError = 0.005048050195478982
@@ -145,14 +156,15 @@ test meanSquareError = 0.005048050195478982
 
 # Visualization
 
-Let's visualize our loss function using library called [Picta](https://acse-fk4517.github.io/picta-docs/index.html).
-We are going to use Picta in [Jupyter notebook](https://jupyter.org/) via [Almond Scala kernel](https://almond.sh/).
+To visualize the loss function, I have decied to try [Picta](https://acse-fk4517.github.io/picta-docs/index.html) library.
+It can be used in [Jupyter notebook](https://jupyter.org/) via [Almond Scala kernel](https://almond.sh/), which is very cool.
 
 Before we try to use Picta's 2D or 3D [Canvas API](https://acse-fk4517.github.io/picta-docs/canvas.html), 
 we need to prepare metrics data. 
-We could run the entire training code in Jupyter together with Picta around, but as of now Almond Scala kernel
+
+_We could run the entire training code in Jupyter together with Picta around, but as of now Almond Scala kernel
 does not support Scala 3 which was used to write the Deep Learning code. So we will go with CSV files to 
-bridge two worlds.
+bridge two worlds._
 
 This is our plan:
 
@@ -177,7 +189,7 @@ store("metrics/gradient.csv", "w,b,loss", gradientData)
 ```
 
 
-`store` function is just cretaing a CSV file out of data in the Scala list:
+`store` function is just creating a CSV file out of data in the Scala list:
 
 ```scala
 def store(filename: String, header: String, data: List[List[String]]) =    
@@ -215,7 +227,7 @@ chart.plotInline
 
 {{ resize_image(path="linear-regression/model-line.png", width=800, height=600, op="fit") }}
 
-Out model crosses the data points almost in the middle as expected.
+Our model crosses the data points almost in the middle as expected.
 
 ## Loss metric per epoch
 
@@ -252,7 +264,7 @@ chart.plotInline
 {{ resize_image(path="linear-regression/loss-versus-epoch.png", width=800, height=600, op="fit") }}
 
 
-## Loss Function Surface
+## Loss Function Surface & Gradient History
 
 `Picta` can also draw 3D plots, so that we can generate loss surface based on weight and bias parameters (`x` and `y` axis) and loss value as `z` axis.
 
@@ -296,15 +308,16 @@ val gradientData = readCSV(s"$metricsDir/gradient.csv")
 val gw = gradientData("w").map(_.toDouble).reverse
 val gb = gradientData("b").map(_.toDouble).reverse
 val gLoss = gradientData("loss").map(_.toDouble).reverse
-val marker = Marker() setSymbol SQUARE_OPEN setColor "red"
 val gradient = XYZ(x=gw, y=gb, z=gLoss).asType(SCATTER3D).setName("Gradient").drawLinesMarkers
 
 val surfaceChart = Chart()
-    .addSeries(gradient,surface)
+    .addSeries(gradient, surface)
     .setTitle("Loss Function Surface")
     .addAxes(Axis(X, title = "w"), Axis(Y, title = "b"), Axis(Z, title = "loss"))
 surfaceChart.plotInline
 ```
+
+Second plot `gradient` is for gradient history.
 
 I have created several print-screens just to show you this beatiful surface from different angles:
 
@@ -313,10 +326,12 @@ I have created several print-screens just to show you this beatiful surface from
 {{ resize_image(path="linear-regression/loss-surface-3.png", width=800, height=600, op="fit") }}
 {{ resize_image(path="linear-regression/loss-surface-4.png", width=800, height=600, op="fit") }}
 
+Dotted line is gradient descent trace: `z` axis is loss value which is moving to the local minimum with every epoch.
+It is moving according to its `w` and `b`, which are plotted on `x` and `y` axis accordingly.
 
 ### Contour Chart
 
-One more fancy chart from Picta is Contour chart, which sometimes can be useful for analysis.
+One more fancy chart from `Picta` is contour chart, which sometimes can be useful for analysis.
 
 ```scala
 val contour = XYZ(x=w, y=b, z=loss.flatten, n=loss(0).length).asType(CONTOUR)
@@ -329,7 +344,7 @@ contourChart.plotInline
 {{ resize_image(path="linear-regression/loss-contour.png", width=800, height=600, op="fit") }}
 
 
-Just for you to proove that this was drawn in Jupyter actually :-)
+Just for you to prove that this was drawn in Jupyter actually :-)
 
 {{ resize_image(path="linear-regression/jupyter-view.png", width=800, height=600, op="fit") }}
 
@@ -338,7 +353,7 @@ Again big thanks to [Almond project](https://github.com/almond-sh/almond) that m
 # Summary
 
 We have seen that our perceptron model is able to learn weights very quick for simple 1 input variable.
-So it proves that gradient decsent algorithm implemeted earlier is working fine.
+So it proves that gradient descent algorithm implemented earlier is working fine.
 
-Also, we could visualize loss metrics using Picta and Almond Jupyter kernel for Scala quite easily. 
-Such visualization can help us to tune model training in real life use cases.
+Also, we could visualise loss metrics using Picta and Almond Jupyter kernel for Scala quite easily. 
+Such visualisation can help us to tune model training in real life use cases.
