@@ -1,6 +1,6 @@
 +++
 title="Linear Regression with Adam Optimizer"
-date=2021-02-20
+date=2021-02-24
 draft = false
 
 [extra]
