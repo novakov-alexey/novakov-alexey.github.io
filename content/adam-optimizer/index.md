@@ -19,7 +19,7 @@ categories = ["scala"]
   - β<sub>1</sub> = 0.9,
   - β<sub>2</sub> = 0.999
   - eps = 10−8.  
-  
+<!-- more -->  
 Values on the right-hand side are proposed in the paper. However, you should tune them on your data, 
 also experiment with batch size and other parameters which may influence the Adam parameters.
 
