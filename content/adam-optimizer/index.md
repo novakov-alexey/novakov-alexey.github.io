@@ -267,3 +267,4 @@ might not help to get the best results out of another optimizer you are currentl
 1. [Source code - Optimizers](https://github.com/novakov-alexey/deep-learning-scala/blob/master/src/main/scala/ml/network/optimizers.scala)
 1. [Reference Implementation for perceptron](https://machinelearningmastery.com/adam-optimization-from-scratch/)
 1. [Paper: Adam: a method for stochastic optimization](https://arxiv.org/pdf/1412.6980.pdf)
+1. [MXNET: Adam from scratch](https://gluon.mxnet.io/chapter06_optimization/adam-scratch.html)
