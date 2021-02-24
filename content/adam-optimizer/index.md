@@ -12,24 +12,23 @@ tags = ["deep learning", "machine learning", "linear regression", "Adam", "Picta
 categories = ["scala"]
 +++
 
-[Adam](https://arxiv.org/pdf/1412.6980.pdf) is one more optimization algorithm used in neural netwroks. It is based on adaptive estimates of lower-order moments. It has more hyperparameters than classic Gradient Descent to tune externally:
+[Adam](https://arxiv.org/pdf/1412.6980.pdf) is one more optimization algorithm used in neural networks. It is based on adaptive estimates of lower-order moments. It has more hyper-parameters than classic Gradient Descent to tune externally
 
  Good default settings for the tested machine learning problems are:
   - α =  0.001, // learning rate. We have already seen this one in classic Gradient Descent.
-  - β1 = 0.9,
-  - β2 = 0.999
-  - eps= 10−8.  
+  - β<sub>1</sub> = 0.9,
+  - β<sub>2</sub> = 0.999
+  - eps = 10−8.  
   
-Values on the right-hand side are proposed in the paper. However, you can tune them on your data, change batch size and other parameters which
-depend the Adam parameters.
+Values on the right-hand side are proposed in the paper. However, you should tune them on your data, 
+also experiment with batch size and other parameters which may influence the Adam parameters.
 
 # Algorithm
 
-Let's look at original algorithm and then try to implement it in code:
-
+Let's look at original algorithm and then try to implement it in the code.
 
 All operations on vectors are element-wise.  With β<sub>1</sub><sup>t</sup> and β<sub>2</sub><sup>t</sup> 
-we denote β1 and β2 to the power of `t`.
+we denote β<sub>1</sub> and β<sub>2</sub> to the power of `t`.
 
 __Require__: α: Stepsize
 
@@ -59,13 +58,13 @@ __Require__: θ<sub>0</sub>: Initial parameter vector
 
   v<sub>t</sub> ← v<sub>t</sub> / (1−βt<sub>2</sub>) (Compute bias-corrected second raw moment estimate)
 
-  θ<sub>t</sub> ← θ<sub>t−1</sub>−α·̂mt/(√̂v<sub>t</sub> +eps) (Update parameters)
+  θ<sub>t</sub> ← θ<sub>t−1</sub>−α·̂mt/(√̂v<sub>t</sub> +eps) (Update parameters)
 
   __end while__
 
   __return__ θ<sub>t</sub> (Resulting parameters)
 
-At the last line we update paramateres based on long chain of formulas which incorporate gradient and moments.
+At the last line we update parameters based on long chain of formulas which incorporate gradient and moments.
 
 
 # Implementation
@@ -86,7 +85,7 @@ case class Layer[T](
 )
 ```
 
-We assume that any optimizer may bring its own state besied the usual weight and bias matrices, so we model 
+We assume that any optimizer may bring its own state apart of the usual weight and bias matrices, so we model 
 new property as trait and add implementation for Adam:
 
 ```scala
@@ -100,10 +99,10 @@ case class AdamState[T](
 ) extends OptimizerState[T]
 ```
 
-We aslo need to initialize this state properties with zeros. For that, we extand layer construction code to let the optimizer type class
-to init its properties on its own.
+We also need to initialise this state properties with zeros. For that, we extend layer construction code to let the optimizer type class
+to init its properties.
 
-First we change `add` method the `Sequential` model type:
+First, we change `add` method in the `Sequential` type:
 
 ```scala
 def add(layer: LayerCfg[T]): Sequential[T, U] =
@@ -112,7 +111,7 @@ def add(layer: LayerCfg[T]): Sequential[T, U] =
     val prevInput = currentLayers.lastOption.map(_.units).getOrElse(inputs)
     val w = random2D(prevInput, layer.units)
     val b = zeros(layer.units)
-    // new line to init state for the choosen optimizer
+    // new line to init state for the chosen optimizer
     val optimizerState = optimizer.initState(w, b) 
     (currentLayers :+ Layer(w, b, layer.f, layer.units, optimizerState))
   })
@@ -136,8 +135,8 @@ override def initState[T: ClassTag: Numeric](
 
 `Tensor.zero` method creates new tensor with zeros using the same shape as original tensor.
 
-Also, we need to keep Adam hyperparameters somewhere. Let's crete `OptimizerCfg` class and Adam extension in it.
-We could also go into `trait` way, but I decided to make it dirty first time:
+Also, we need to keep Adam hyper-parameters somewhere. Let's create `OptimizerCfg` class and Adam extension in it.
+We could design custom configuration nicely, for example, using traits, but I have decided to make it "dirty" at the moment:
 
 ```scala
 case class OptimizerCfg[T: ClassTag: Fractional](
@@ -152,7 +151,7 @@ case class AdamCfg[T: ClassTag](b1: T, b2: T, eps: T)
 ## Update Weights using Adam
 
 We now have all abstraction in place as well as all parameters to implement Adam optimizer.
-In fact, first part to calculate gradient (partial derrivative) will be the same as in classic gradient descent algorithm.
+In fact, first part to calculate gradient (partial derivative) will be the same as in classic gradient descent algorithm.
 Second part will be `Adam's` own stuff:
 
 ```scala
@@ -208,13 +207,13 @@ override def updateWeights[T: ClassTag](
     ._1    
 ```
 
-The difference with classis gradient optimizer is:
+The difference with classic gradient optimizer is:
 
-1. `timestep` is an index acorss all training epochs and batched: `[1 .. epochs * data.length / batchsize]`
+1. `timestep` is an index across all training epochs and intermediate batches. Its range: `[1 .. epochs * data.length / batchSize]`
 1. `correction` function that goes after Adam paper to calculate final learning rate based on the weight or bias gradient.
 1. We keep Adam moments for weight and bias `AdamState` as part of the Layer state across all learning epochs.
 
-There is an extension to Tensor API I have added to support elementwise operations like:
+There is an extension to Tensor API I have added to support element-wise operations like:
 
 1. division `def :/(that: T): Tensor[T]`
 1. multiplication `(t: T) def *:(that: Tensor[T]): Tensor[T]`
@@ -222,9 +221,9 @@ There is an extension to Tensor API I have added to support elementwise operatio
 1. square: `def sqr: Tensor[T] = TensorOps.pow(t, 2)`
 1. sqrt: `def sqrt: Tensor[T] = TensorOps.sqrt(t)`
 
-# Visualization
+# Visualisation
 
-We are going to visualize Adam gradient trace to global minimum using Picta. So all we do is constructing ANN with Adam type parameter:
+We are going to visualise Adam gradient trace to global minimum using [Picta](https://github.com/cedricmjohn/picta). So all we do is constructing ANN with Adam type parameter:
 
 ```scala
 val ann = Sequential[Double, Adam](
@@ -243,7 +242,7 @@ Also, we going to compare it on the same data with classic Gradient Descent:
 
 {{ resize_image(path="adam-optimizer/loss-contour.png", width=800, height=600, op="fit") }}
 
-Adam gradient starts a bit differently then classic gradient descent. Eventually, they both converges in the same point.
+Adam gradient starts a bit differently then classic gradient descent. Eventually, they both converges at the same point.
 
 If we compare the speed of finding global minimum, then on my data and on the same learning hyper-parameters, classic Gradient Descent is faster:
 
@@ -252,14 +251,14 @@ If we compare the speed of finding global minimum, then on my data and on the sa
 {{ resize_image(path="adam-optimizer/gradient-trace.png", width=800, height=600, op="fit") }}
 {{ resize_image(path="adam-optimizer/gradient-trace-4.png", width=800, height=600, op="fit") }}
 
-We can see that orange line is sligthly behind the blue one. Around `9th` learning epoch they are both in the same position.
+We can see that orange line is slightly behind the blue one. Around `9th` learning epoch they are both in the same position.
 
 # Summary
 
 We could easily extend existing library with one more optimizer such as Adam. It is quite popular optimizer nowadays as it shows
-good result in the paper. Anyway, it did not show better results on my data comparing to classic gradient descent algorithm.
+good result in the paper and in practise. Anyway, it did not show better results on my data comparing to classic gradient descent algorithm.
 My experiment is not proving that Adam is not good, but it is just showing that in real life you need to experiment with 
-different weight optimizers. Also, you should tune hyperparameters for each algorithm separately, i.e. reuse of the same hyperparameters
+different weight optimisers. Also, you should tune hyper-parameters for each algorithm separately, i.e. reuse of the same hyper-parameters
 might not help to get the best results out of another optimizer you are currently trying.
 
 
