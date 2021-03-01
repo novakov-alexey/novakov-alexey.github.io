@@ -76,20 +76,15 @@ All extension methods are delegating the operations to plain Scala functions in 
 Before checking some of the implementations for Tensor operations, let's look on 3 cases of Tensor itself.
 
 ```scala
-case class Tensor0D[T: ClassTag](data: T) extends Tensor[T]:
-  type A = T
+case class Tensor0D[T: ClassTag](data: T) extends Tensor[T]:  
   ....
 
 case class Tensor1D[T: ClassTag](data: Array[T]) extends Tensor[T]:
-  type A = Array[T]
   ....
 
 case class Tensor2D[T: ClassTag](data: Array[Array[T]]) extends Tensor[T]:
-  type A = Array[Array[T]]  
   ....
 ```
-
-Look at how `A` type is set based on the Tensor dimension.
 
 From math perspective, first instance is a scalar number, second is a vector and third is a matrix. Of course, we could implement
 tensors in more generic way and invent some N-dimensional array that would support 3, 4 and any number of dimensions,
@@ -119,7 +114,7 @@ def mul[T: ClassTag: Numeric](a: Tensor[T], b: Tensor[T]): Tensor[T] =
   private def matMul[T: ClassTag: Numeric](
       a: Array[Array[T]],
       b: Array[Array[T]]
-  ): Array[Array[T]] =
+  )(using n: Numeric[T]): Array[Array[T]] =
     assert(
       a.head.length == b.length,
       "The number of columns in the first matrix should be equal " + 
@@ -131,7 +126,7 @@ def mul[T: ClassTag: Numeric](a: Tensor[T], b: Tensor[T]): Tensor[T] =
 
     for i <- (0 until rows).indices do
       for j <- (0 until cols).indices do
-        var sum = summon[Numeric[T]].zero
+        var sum = n.zero
         for k <- b.indices do
           sum = sum + (a(i)(k) * b(k)(j))
         res(i)(j) = sum
@@ -144,7 +139,7 @@ with one column according to math convention.
 1. Later we check operands dimensions, as they must obey rules of
 matrix multiplication. If rules are not met we throw an error. No Scala `Either` type or other error modelling is used to not clutter the code. Our goal is to stay as close as possible to math and keep balance between using types and readability.
 
-See [source code on GitHub](https://github.com/novakov-alexey/deep-learning-scala/blob/master/src/main/scala/tensor.scala) for full implementation of tensor library.
+See [source code on GitHub](https://github.com/novakov-alexey/deep-learning-scala/blob/master/src/main/scala/ml/tensors/ops.scala) for full implementation of tensor library.
 
 # Neural Network DSL
 
@@ -175,7 +170,7 @@ These parameters are the heart of the model. They are mutating on every training
 Before designing neural network training API, let's look at entities we need:
 
 ```scala
-trait ActivationFunc[T] extends (Tensor[T] => Tensor[T]):
+trait ActivationFunc[T]:
   def apply(x: Tensor[T]): Tensor[T]
   def derivative(x: Tensor[T]): Tensor[T]
 
