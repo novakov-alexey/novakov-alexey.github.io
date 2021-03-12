@@ -1,6 +1,6 @@
 +++
 title="MNIST image recognition using Deep Feed Forward Network"
-date=2021-03-11
+date=2021-03-12
 draft = false
 
 [extra]
