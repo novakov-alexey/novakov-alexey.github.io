@@ -18,11 +18,11 @@ That means every pixel becomes a feature. It may sound scary and highly ineffici
 However, neural networks can learn from the pixel data successfully and classify unseen data. We are going to prove this.
 
 Please note, there are additional type of networks which are more efficient in image classification such as Convolutional Neural Network, but we are going to talk about that next time.
-<!-- more -->
 
 # Dataset
 
 ![Wikipedia MnistExamples](https://upload.wikimedia.org/wikipedia/commons/2/27/MnistExamples.png)
+<!-- more -->
 
 [MNIST dataset](https://en.wikipedia.org/wiki/MNIST_database) is a "Hello, World!" dataset in the field of Deep Learning. 
 It consists of thousands of grey-scaled images which represent hand-written digits from 0 to 9,
@@ -472,3 +472,10 @@ predicted = 7.0
  - use `softmax` activation at the last layer to distribute probabilities across classes.
 
 Try [Convolutional Neural Network](https://en.wikipedia.org/wiki/Convolutional_neural_network) as a next step in image classification problem.
+
+
+# Links
+
+1. [Source code of mini-library: deep-learning-scala](https://github.com/novakov-alexey/deep-learning-scala)
+1. [MNIST Handwritten digits classification from scratch using Python Numpy](https://towardsdatascience.com/mnist-handwritten-digits-classification-from-scratch-using-python-numpy-b08e401c4dab)
+1. [softmax.py eliben/deep-learning-samples](https://github.com/eliben/deep-learning-samples/blob/d5ca86c5db664fabfb302cbbc231c50ec3d6a103/softmax/softmax.py#L84)
