@@ -10,6 +10,11 @@ toc_disabled=true
 
 {{ resize_image(path="presentations/images/bob-berlin-alexey.jpg", width=600, height=600, op="fit") }}
 
+## 2021
+
+- 25.03.2021 Deep Learning in Scala 3 from scratch [Slides](https://speakerdeck.com/alexeyn/deep-learning-in-scala-3-from-scratch)
+- 08.03.2021 Dhall Configuration Language [Slides](https://speakerdeck.com/alexeyn/dhall-configuration-language)
+
 ## 2020
 - 28.09.2020 http4s Middleware. SPNEGO Authentication [Slides](https://speakerdeck.com/alexeyn/http4s-middleware), [Video](https://www.youtube.com/watch?v=Jw_MALH3VDc)
 - 18.06.2020 Writing Kubernetes Operator using Cats-Effect [Slides](https://speakerdeck.com/alexeyn/writing-kubernetes-operators-using-cats-effect), [Video](https://www.youtube.com/watch?v=5sDmT1-ZgYY)
