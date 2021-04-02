@@ -19,7 +19,7 @@ CNN is designed to tackle image recognition problem. However, it can be used not
 As we have seen last time, ANN using just hidden layers can learn quite well on MNIST.
 However, for real life use cases we need higher accuracy. The main idea of CNN is to learn how to recognise object in their different shapes and positions 
 using specific features of the image data. The goal of CNN is better model regularisation by using convolution and pooling operations.
-
+<!-- more -->
 CNN adds two more type of layers:
 
 - Convolution layer
@@ -234,7 +234,7 @@ val model = cnn.train(xTrain, yTrain, epochs = 5, shuffle = true)
 First of all we have more feature now with CNN = 4232 to learn in fully-connected layers.
 But the main slowness comes from the forward and backward computation of the convolutional and pooling layers. They are much slower than simple dense layer matrix multiplication.
 
-This takes up to 1 hour to train on MNIST on 50k images. The highest accuracy score I got was 91%, which is much lower than with ANN = 98.5%. 
+This takes up to 1 hour to train on MNIST on 50k images. The highest accuracy score I got was 92%, which is much lower than with ANN = 98.5%. 
 As we have too few layers and most probably exploding/vanishing gradient I could not better result with CNN. However, it is quite possible to get
 that with production libraries like Tensorflow, where you will get 98% accuracy or higher using the same architecture that I used in this article.
 
