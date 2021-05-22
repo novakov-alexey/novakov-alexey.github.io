@@ -14,7 +14,7 @@ categories = ["scala"]
 
 Face detection and recognition is one the area where Deep Learning is incredibly useful. There are many studies and datasets related to
 human faces and their detection/recognition. In this article we will implement Machine Learning pipeline for face detection and recognition using few libraries and CNN model.
-
+<!-- more -->
 # Pipeline
 
 One the part will be implemented with very popular C++ library [OpenCV](https://opencv.org/), which is around for a long time. 
@@ -29,7 +29,6 @@ Original photo:
 
 Cropped with Haar Cascade:
 {{ resize_image(path="face-identification/tom_face.jpg", width=800, height=600, op="fit") }}
-
 
 Once we get an area of the detected face(s), we can compare its pixel data with in advance extracted face features of known faces. 
 Comparison algroithm calculates a Euclidean distance between detected face vector with vectors of known faces. 
