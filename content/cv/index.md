@@ -27,9 +27,9 @@ Software Solution Architect, Senior Software Engineer,
 - Current: [https://novakov-alexey.github.io](https://novakov-alexey.github.io)
 - Before at Medium: [https://medium.com/se-notes-by-alexey-novakov](https://medium.com/se-notes-by-alexey-novakov)
 
-**Education:** Specialist in Computer Science 2003-2008, Donetsk State University of informatics and Artificial intelligence, Ukraine
+**Education:** Specialist in Computer Science 2003-2008, Donetsk State University of Informatics and Artificial intelligence, Ukraine
 
-**Summary:** 15 years of hands-on experience in the field of Software Development, Architecture, System integration,
+**Summary:** 16 years of hands-on experience in the field of Software Development, Architecture, System integration,
 FP & OO programming, Designing and Prototyping, Database designing and Specification creating.
 
 _Development practice:_
@@ -39,17 +39,38 @@ _Development practice:_
 - Pair Programming
 
 _Technical expertise:_
-- Developing commercial applications on Kubernetes, JVM, Oracle, Linux, Docker
+- Developing commercial applications on Kubernetes, Hadoop, JVM, Oracle, Linux, Docker and Cloud platforms
 - Developing specifications and design solution documents for long term projects
 - Deep and rich expertise on the languages: Java, Scala, JavaScript, HTML/CSS, PHP
 
 ---
 
 ## Work Experience
+**Solution Architect in EPAM, Germany**
+
+_Feb 2021 – present_
+
+ <table align="left">
+    <tr>
+        <td align="left">Company</td>
+        <td align="left">
+        EPAM Systems is a provider of software product development and digital platform engineering services. The company provides custom developed technology, tools, and platforms to clients in industries such as financial services, travel and consumer, software and hi-tech, media and entertainment, life sciences and healthcare.
+        </td>        
+    </tr>
+    <tr>
+        <td align="left">Responsibilities</td>                
+        <td align="left">design data platform architectures, architecture reviews, pre-sale activities</td>        
+    </tr>
+    <tr>
+        <td align="left">Technologies</td>
+        <td align="left">AWS, Azure, GCP, Kubernetes, Hadoop, Spark, Kafka, NiFi, Scala</td>        
+    </tr>
+</table>  
+&nbsp;   
 
 **Senior Big Data Solution Architect in Ultra Tendency, Germany**
 
-_Jun 2019 – present_
+_Jun 2019 – Feb 2021_
 
  <table align="left">
     <tr>
@@ -160,7 +181,7 @@ _Mar 2014 – 2016_
 </table>  
 &nbsp;   
 
-**Senior Software Engineer in Luxoft USA, New Jersey**
+**Senior Software Engineer in Luxoft, USA**
 
 _Aug 2014 – Feb 2016_
 
@@ -198,7 +219,7 @@ _Aug 2014 – Feb 2016_
 </details>
 &nbsp;
 
-**Delivery Product Manager in Luxoft, Kiev, Ukraine**
+**Delivery Product Manager in Luxoft, Ukraine**
 
 _Apr 2013 – May 2014_
 
@@ -348,7 +369,7 @@ _Jan 2007 – May 2007_
     </tr>
     <tr>
         <td align="left">Operating systems</td>
-        <td align="left">Windows, RHEL/Ubuntu/CentOS, MacOS</td>        
+        <td align="left">RHEL/Ubuntu/CentOS, OSX, Windows</td>        
     </tr>
     <tr>
         <td align="left">Programming languages, technologies</td>
