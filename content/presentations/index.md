@@ -12,6 +12,7 @@ toc_disabled=true
 
 ## 2021
 
+- 03.05.2021 Data Stream Processing with AWS Kinesis [Slides](https://speakerdeck.com/alexeyn/data-stream-processing-with-aws-kinesis)
 - 25.03.2021 Deep Learning in Scala 3 from scratch [Slides](https://speakerdeck.com/alexeyn/deep-learning-in-scala-3-from-scratch)
 - 08.03.2021 Dhall Configuration Language [Slides](https://speakerdeck.com/alexeyn/dhall-configuration-language)
 
