@@ -15,7 +15,7 @@ Software Solution Architect, Senior Software Engineer,
 
 **Birthday:** 15th of June 1986
 
-**Contact:** novakov.alex at gmail dot com, cell: +49 152 38993217
+**Contact:** novakov.alex at gmail dot com, cell: +49 151 46382994
 
 {{ social_links() }}
 
