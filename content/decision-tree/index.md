@@ -295,9 +295,13 @@ This algorithm assembles tree data structure based on training data features by 
 Set of input data samples is getting smaller on every question split, so that all rows eventually get their predicted label. Once tree is built,
 we can use it to classify new data.
 
-CART algorithm is simple to understand and it can be useful in certain data classification problems. This algorithm is easy to train, since it does not require hyper-parameters or
+CART algorithm is easy to understand and it can be useful in certain data classification problems. This algorithm is fast and easy to train, since it does not require hyper-parameters or
 any other additional tuning techniques. It is also fast to train comparing to neural networks training efforts (GPU acceleration, lots of data, vanishing gradient).
 
 If you need full project code, then check this GitHub repository: 
 
 [https://github.com/novakov-alexey/decision-trees](https://github.com/novakov-alexey/decision-trees)
+
+The entire blog-post is based on this example:
+- Youtube video: [https://www.youtube.com/watch?v=LDRbO9a6XPU&list=LL&index=6](https://www.youtube.com/watch?v=LDRbO9a6XPU&list=LL&index=6)
+- Python code: [https://github.com/random-forests/tutorials/blob/master/decision_tree.py](https://github.com/random-forests/tutorials/blob/master/decision_tree.py)
