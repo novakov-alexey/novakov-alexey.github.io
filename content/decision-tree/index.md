@@ -12,6 +12,8 @@ tags = ["machine learning", "algorithms"]
 categories = ["scala"]
 +++
 
+__Cropped view of one the region in the middle of the tree we will build further__
+{{ resize_image(path="decision-tree/images/tree-shape.png", width=700, height=600, op="fit_width") }}
 
 Decision Tree classifier is one the simplest algorithm to implement from scratch. One of the benefit of this algorithm is it can be trained without
 spending too much efforst on data preparation and it is fast comparing to more complex algorithms like Neural Networks. 
@@ -22,7 +24,7 @@ Data science practitioners often use decision tree algorithms to compare their p
 Although decision tree is fast to train, its accuracy metric usually lower than accuracy on the other algorithms like deep feed forward networks 
 or something more advanced using the same dataset. However, you do not always need high accuracy value, 
 so using CART and other decision tree ensemble algorithms may be enough for solving particular problem.
-
+<!-- more -->
 # CART Algorithm
 
 The whole algorithm can be described in several steps:
@@ -36,13 +38,11 @@ The whole algorithm can be described in several steps:
 1. Using in-memory tree data structure to classify unseen data samples.
 
 
-Below is a decision tree in three different scales we will be build further.
+Below is a decision tree in different scales we will build further. 
+See a link to GitHub repo, which contains code store a decision tree as JSON file, so that you can visualize stoted JSON objects using any online JSON tree visualizer tool.
 
-Fit to screen view:
+Fit-to-sreen view of further implemented decision tree:
 {{ resize_image(path="decision-tree/images/tree-full.png", width=700, height=600, op="fit_width") }}
-
-Cropped view of one the region in the middle of the tree:
-{{ resize_image(path="decision-tree/images/tree-shape.png", width=700, height=600, op="fit_width") }}
 
 Zoomed view to read some tree questions:
 {{ resize_image(path="decision-tree/images/tree-readable.png", width=700, height=600, op="fit_width") }}
