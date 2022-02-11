@@ -63,7 +63,7 @@ _Feb 2021 – present_
     </tr>
     <tr>
         <td align="left">Technologies</td>
-        <td align="left">AWS, Azure, GCP, Kubernetes, Hadoop, Spark, Kafka, NiFi, Scala</td>        
+        <td align="left">AWS, Spark, Scala, EMR, Glue, Athena, Airflow, Delta Lake</td>        
     </tr>
 </table>  
 &nbsp;   
