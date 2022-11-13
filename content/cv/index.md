@@ -46,7 +46,7 @@ _Technical expertise:_
 ---
 
 ## Work Experience
-**Solution Architect in EPAM, Germany**
+**Data Architect in EPAM, Germany**
 
 _Feb 2021 – present_
 
