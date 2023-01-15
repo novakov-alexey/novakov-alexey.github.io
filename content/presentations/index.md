@@ -13,6 +13,8 @@ toc_disabled=true
 ## 2021
 
 - 04.11.2021 Scalacon Nov 2021: Deep Learning in Scala 3 from scratch [Slides](https://speakerdeck.com/alexeyn/scalacon-2021-deep-learning-in-scala), [Video](https://www.youtube.com/watch?v=1AUClzPIzGM)
+- 02.08.2021 AWS Airflow and EMR [Slides](https://speakerdeck.com/alexeyn/aws-airflow-and-emr)
+- 27.07.2021 EMR Data Ingestion [Slides](https://speakerdeck.com/alexeyn/emr-data-ingestion-with-apache-hudi)
 - 03.05.2021 Data Stream Processing with AWS Kinesis [Slides](https://speakerdeck.com/alexeyn/data-stream-processing-with-aws-kinesis)
 - 25.03.2021 Rhein-Main Scala Meetup: Deep Learning in Scala 3 from scratch [Slides](https://speakerdeck.com/alexeyn/deep-learning-in-scala-3-from-scratch)
 - 08.03.2021 Dhall Configuration Language [Slides](https://speakerdeck.com/alexeyn/dhall-configuration-language)
