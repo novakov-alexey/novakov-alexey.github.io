@@ -10,6 +10,10 @@ toc_disabled=true
 
 {{ resize_image(path="presentations/images/bob-berlin-alexey.jpg", width=600, height=600, op="fit") }}
 
+## 2023
+
+- 10.01.2023 Alibaba Cloud Developer Summit 2023: Rapid Development with Apache Flink and Ververica Platform [Slides](https://speakerdeck.com/alexeyn/rapid-deployment-with-apache-flink-and-ververica-platform)
+
 ## 2021
 
 - 04.11.2021 Scalacon Nov 2021: Deep Learning in Scala 3 from scratch [Slides](https://speakerdeck.com/alexeyn/scalacon-2021-deep-learning-in-scala), [Video](https://www.youtube.com/watch?v=1AUClzPIzGM)
