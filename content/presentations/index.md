@@ -14,6 +14,10 @@ toc_disabled=true
 
 - 10.01.2023 Alibaba Cloud Developer Summit 2023: Rapid Development with Apache Flink and Ververica Platform [Slides](https://speakerdeck.com/alexeyn/rapid-deployment-with-apache-flink-and-ververica-platform)
 
+## 2022
+
+- 04.11.2022 Data Lake implementation story [Video](https://www.youtube.com/watch?v=2eRd3ILDwBY&t=18301s)
+
 ## 2021
 
 - 04.11.2021 Scalacon Nov 2021: Deep Learning in Scala 3 from scratch [Slides](https://speakerdeck.com/alexeyn/scalacon-2021-deep-learning-in-scala), [Video](https://www.youtube.com/watch?v=1AUClzPIzGM)
