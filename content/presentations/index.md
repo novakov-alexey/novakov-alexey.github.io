@@ -12,6 +12,7 @@ toc_disabled=true
 
 ## 2023
 
+- 27.05.2023 Kubernetes Frankfurt: Deployment of Streaming Application with Ververica Platform on Kubernetes [Slides](https://speakerdeck.com/alexeyn/deployment-of-streaming-application-with-ververica-platform-on-kubernetes)
 - 10.01.2023 Alibaba Cloud Developer Summit 2023: Rapid Development with Apache Flink and Ververica Platform [Slides](https://speakerdeck.com/alexeyn/rapid-deployment-with-apache-flink-and-ververica-platform)
 
 ## 2022
