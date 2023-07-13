@@ -46,9 +46,31 @@ _Technical expertise:_
 ---
 
 ## Work Experience
+**Solution Architect in Ververica, Germany**
+
+_Nov 2022 – present_
+
+ <table align="left">
+    <tr>
+        <td align="left">Company</td>
+        <td align="left">
+        Ververica is original creator of Apache Flink. Enterprise stream processing and analytics company. 
+        </td>        
+    </tr>
+    <tr>
+        <td align="left">Responsibilities</td>                
+        <td align="left">design and support data streaming architectures, architecture reviews, consulting, pre-sale activities</td>        
+    </tr>
+    <tr>
+        <td align="left">Technologies</td>
+        <td align="left">Flink, Kubernetes, AWS, GCP, Scala, Java, SQL, Python, Kafka</td>        
+    </tr>
+</table>  
+&nbsp;   
+
 **Data Architect in EPAM, Germany**
 
-_Feb 2021 – present_
+_Feb 2021 – Oct 2022_
 
  <table align="left">
     <tr>
