@@ -40,10 +40,10 @@ Flink for newer Scala versions.
 
 For those who wants to use Scala 2.13 or [Scala 3](https://docs.scala-lang.org/scala3/new-in-scala3.html) with Flink already today, there are few options available: 
 
-- [flink-scala-api](https://github.com/findify/flink-scala-api) a fork of Flink Scala bindings from Findify 
+- [flink-scala-api](https://github.com/flink-extended/flink-scala-api) a fork of Flink Scala bindings originally done by Findify
 - [Flink4s](https://github.com/ariskk/flink4s)
 
-Further example in this blog-post is using first option, i.e. [flink-scala-api](https://github.com/findify/flink-scala-api).
+Further example in this blog-post is using first option, i.e. [flink-scala-api](https://github.com/flink-extended/flink-scala-api).
 
 # Build Job with Scala 3
 
@@ -133,11 +133,14 @@ fraud-detection-taskmanager-1-1    1/1     Running   0          31m
 # Summary
 
 Starting Flink 1.15, it is no longer tightly coupled to Scala, so that one can remove Scala dependency to Scala 2.12 and use newer version.
-Depends on situation, user can add own Scala version as part of Docker image build or just pack it inside the Flink job JAR file.
+Depends on situation, user can add own Scala version as part of Docker image build or just pack it inside the Flink job fat-JAR file.
 
-How long the official Flink Scala API with version of Scala 2.12 will remain available in future releases? And what will happen with 
-In order answer this question you should keep an eye on [Flink communication channels](https://flink.apache.org/community.html)
+How long the official Flink Scala API with version of Scala 2.12 will remain available in future releases? And what will happen with it.
+In order to answer this question you should keep an eye on [Flink communication channels](https://flink.apache.org/community.html)
  like Slack, Jira and mailing lists.
+
+ Even it is going to be removed, users can safely use [flink-scala-api](https://github.com/flink-extended/flink-scala-api) from Flink Extended
+ organization. As one of the maintainer, I can guarantee it will be up to date in the future.
 
 # Links
 
