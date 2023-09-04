@@ -12,6 +12,7 @@ toc_disabled=true
 
 ## 2023
 
+- 19.08.2023 Community Over Code Asia 2023: State of Scala API in Apache Flink [Slides](https://speakerdeck.com/alexeyn/state-of-scala-api-in-apache-flink)
 - 27.05.2023 Kubernetes Frankfurt: Deployment of Streaming Application with Ververica Platform on Kubernetes [Slides](https://speakerdeck.com/alexeyn/deployment-of-streaming-application-with-ververica-platform-on-kubernetes)
 - 10.01.2023 Alibaba Cloud Developer Summit 2023: Rapid Development with Apache Flink and Ververica Platform [Slides](https://speakerdeck.com/alexeyn/rapid-deployment-with-apache-flink-and-ververica-platform)
 
