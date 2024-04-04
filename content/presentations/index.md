@@ -10,6 +10,10 @@ toc_disabled=true
 
 {{ resize_image(path="presentations/images/bob-berlin-alexey.jpg", width=600, height=600, op="fit") }}
 
+## 2024
+
+- 27.03.2024 Ververica Webinar: Hop to it! Innovating Easter Egg Delivery with Ververica Cloud [Video](https://www.youtube.com/watch?v=RnyteufApRU&t=9s)
+
 ## 2023
 
 - 08.11.2023 Flink Forward 2023: State of Scala API in Apache Flink [Slides](https://speakerdeck.com/alexeyn/flink-forward-2023-state-of-scala-api-in-apache-flink)
