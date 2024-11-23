@@ -11,7 +11,8 @@ toc_disabled=true
 {{ resize_image(path="presentations/images/bob-berlin-alexey.jpg", width=600, height=600, op="fit") }}
 
 ## 2024
-
+- 22.11.2024 BigData Europe 2024: Streamhouse Architecture with Flink and Paimon [Slides](https://speakerdeck.com/alexeyn/streamhouse-architecture-with-flink-and-paimon)
+- 21.10.2024 Flink Forward 2024: Deep Dive - Bridging Data Silos with Flink CDC [Announce](https://www.flink-forward.org/berlin-2024/agenda#bridging-data-silos-with-flink-cdc)
 - 27.03.2024 Ververica Webinar: Hop to it! Innovating Easter Egg Delivery with Ververica Cloud [Video](https://www.youtube.com/watch?v=RnyteufApRU&t=9s)
 
 ## 2023
