@@ -29,7 +29,7 @@ Software Solution Architect, Senior Software Engineer,
 
 **Education:** Specialist in Computer Science 2003-2008, Donetsk State University of Informatics and Artificial intelligence, Ukraine
 
-**Summary:** 16 years of hands-on experience in the field of Software Development, Architecture, System integration,
+**Summary:** 18 years of hands-on experience in the field of Software Development, Architecture, System integration,
 FP & OO programming, Designing and Prototyping, Database designing and Specification creating.
 
 _Development practice:_
@@ -42,6 +42,11 @@ _Technical expertise:_
 - Developing commercial applications on Kubernetes, Hadoop, JVM, Oracle, Linux, Docker and Cloud platforms
 - Developing specifications and design solution documents for long term projects
 - Deep and rich expertise on the languages: Java, Scala, JavaScript, HTML/CSS, PHP
+
+_Domain knowledge:_
+- Banking, Financial Instruments (Stocks, Exchanges, Forex)
+- Telecom, Mobile Telephony
+- Data Analytics
 
 ---
 
