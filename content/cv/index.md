@@ -59,11 +59,12 @@ _Nov 2022 – present_
     </tr>
     <tr>
         <td align="left">Responsibilities</td>                
-        <td align="left">design and support data streaming architectures, architecture reviews, consulting, pre-sale activities</td>        
+        <td align="left">design and support data streaming architectures, architecture reviews, consulting, pre-sale activities, 
+        cooperation with in-house product team on giivng feature requests and initial feature testing</td>        
     </tr>
     <tr>
         <td align="left">Technologies</td>
-        <td align="left">Flink, Kubernetes, AWS, GCP, Scala, Java, SQL, Python, Kafka</td>        
+        <td align="left">Flink, Kubernetes, AWS, GCP, Scala, Java, SQL, Python, Kafka, Paimon</td>        
     </tr>
 </table>  
 &nbsp;   
@@ -386,7 +387,7 @@ _Jan 2007 – May 2007_
     <tr>
         <td align="left">Data Management</td>
         <td align="left">
-        Oracle, MySQL, DB2, MSSQL, Postgres, Elasticsearch, Infinispan, Kafka, NiFi, Kafka Connect
+        Oracle, MySQL, DB2, MSSQL, Postgres, Elasticsearch, Infinispan, Kafka, NiFi, Kafka Connect, Spark, Flink
         </td>        
     </tr>
     <tr>
@@ -406,8 +407,8 @@ _Jan 2007 – May 2007_
         <td align="left">JaxWS, JaxRS, ApacheCXF, Play-WS, Requests, Scalaj, Http4s</td>        
     </tr>
     <tr>
-        <td align="left">Build tools</td>
-        <td align="left">SBT, Cargo, Gradle, Ant, Maven</td>        
+        <td align="left">Build tools / Scripting</td>
+        <td align="left">SBT, Cargo, Gradle, Ant, Maven, Scala-cli, Ammonite-REPL</td>        
     </tr>
     <tr>
         <td align="left">Libraries / Tool-kits</td>
@@ -430,6 +431,6 @@ _Jan 2007 – May 2007_
 **AWS:** Certified Solution Architect - Associate (WKFNLMRJKM44QBCX) [Badge](https://www.youracclaim.com/badges/4c86c08a-48d2-4df7-a97f-357b09765338)
 
 ### Language
-Russian, Ukrainian – native, English – advanced, German – B1
+Russian, Ukrainian – native, English – C1, German – B1
        
 
