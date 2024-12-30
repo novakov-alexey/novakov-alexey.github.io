@@ -118,33 +118,34 @@ Empty table cell above means we train a model outside of Flink, e.g. in any othe
 Below workflows use Flink at the Inference phase only (right side). In the most common situation, development teams establish their training pipelines outside of Flink using external libraries.
 {{ resize_image(path="flink-ml/images/ml-workflow-with-flink.png", width=1200, height=800, op="fit_width") }}
 
-<p align="center">Figure 1. Training and Inference workflows based on Flink application</p>
+<p align="center">Figure 1. Training and Inference workflows with and w/o Flink</p>
 
 ## Training
 
-In the __Training__ phase we run an application, which (1) reads data from disk, object storage or consumes a set of data from messaging system like Apache Kafka. This application can be a Flink job which uses FlinkML module or some other ML Framework via PyFlink. The ML application may (2) consume data via mini-batches or read data record by record.
+In the __Training__ phase we run an application, which (1) reads data from disk, object storage or consumes a set of data from messaging system like Apache Kafka. This application can be a Flink job which uses FlinkML module or some other ML Framework via PyFlink. The ML application can (2) consume data in mini-batches 
+or read it record by record.
 While running a training loop, the application updates current model weights in memory and (3) stores them periodically to a persistent storage (file system, object storage like AWS S3). Training loop usually runs dozen of times until it reaches certain thresholds of the training metrics and some other control conditions.
 
 
 ## Inference
 
-In the __Inference__ phase we run another Flink Job which may or may not share some code with the training job. 
-The main point is that the inference Flink job loads already trained model and uses the same ML framework to call the model. At the beginning, inference job reads (1) data similarly to the training job, but this time it reads unseen data to (2) apply ML model and stores the results somewhere. Usually the results are stored on every record to (3) messaging system or some persistent storage.
+In the __Inference__ phase we run Flink Job which may or may not share some code with the training job. 
+The main point is that the inference Flink job loads already trained model and uses the same ML framework to call the model. At the beginning, inference job reads (1) data similarly to the training job, but this time it reads unseen data to (2) apply ML model and stores the results to the sink system. Usually the results are stored on every record to (3) messaging system or some persistent storage.
 
 # Flink ML Module
 
 In this blog we uncover Flink ML module and look at its applications. In the next blog posts we look at further ways for ML tasks in Flink such as ONNX, PyFlink and C/C++ wrappers.
 
 Flink ML module supports training and inference for the most popular supervised and unsupervised ML algorithms. 
-This module uses native Flink job graph primitives to build a distributed graph of operators to perform model training or inference. 
+This module uses Flink job primitives to build a distributed graph of operators to perform model training or inference. 
 ML job runs in distributed mode utilising all available Flink task managers in the cluster.
 
-ML algorithms are implemented as operators. You can see them in the Flink UI when opening job graph visualisation. Flink's Table API is a basis for Flink ML. It uses Table type to represent input and output data.
+Flink ML algorithms are implemented as operators. You can see them in the Flink UI when opening job graph visualisation. Flink's Table API is a basis for Flink ML. It uses Table type to represent input and output data.
 
 {{ resize_image(path="flink-ml/images/flink-ml-job-graph.png", width=1200, height=400, op="scale") }}
-<p align="center">Figure 2. Flink Job graph of LogisticRegression.</p>
+<p align="center">Figure 2. Flink Job graph of LogisticRegression model training and validation.</p>
 
-Above figure demonstrates large Flink Job graph which is built by Flink Table API and Flink ML to run data preparation and Logistic Regression training process. 
+Above figure shows a large Flink Job graph from the Flink UI, which is built by Flink Table API and Flink ML to run data preparation and Logistic Regression training process. 
 We will see how to train such a model in details further.
 
 ## Algorithms supported by the FlinkML
@@ -167,7 +168,7 @@ Let's implement an ML application in Flink for __Customer Churn Analysis__ by us
 
 The goal of our model is to predict whether a customer may leave a bank or not. 
 
-As clients dataw we use syntetic data set prepared and stored in CSV file format in local filesystem.
+As clients data, we use syntetic data set prepared and stored in CSV file format in local filesystem.
 Clients data has all required columns to train the ML model. 
 
 ## Data Preparation
@@ -196,18 +197,21 @@ HasCrCard,
 IsActiveMember,
 EstimatedSalary
 ```
-Column `Exited` is our target label to predict. It contains binary value such as 0 or 1, which encode the following logic:
+Column `Exited` is our target label to predict. It contains binary value such as 0 or 1, which encodes the following logic:
 - 0 - client won't exit the bank; 
 - 1 - client will exit the bank
 
 Before we feed the selected data columns into the any ML algorithm, we need to transform this data
 into numerical format. At this point we start to name data columns as features. Categorical features
 should be encoded with one-hot encoder, numerical features also known as continues features should be normalised. Specific data encoding and 
-normalisation is needed to achieve the highest model accuracy and the lowest error rate during the training. 
+normalisation is needed to achieve the highest model accuracy and the lowest error rate during the training or simply saying this helps to achieve the best 
+learning performance in terms quality.
 
 To learn more on feature engineering topic I advise you to read special literature on that. In this blog post we focus on Flink ML module itself.
 
 ### Load CSV as Flink Table
+
+First we use Flink DataStream API to load tabular CSV data from file and parse it into the Row type.
 
 ```scala
 val source = FileSource
@@ -254,7 +258,7 @@ val indexer = StringIndexer()
 ```
 
 `StringIndexer` turns string (categorical) columns into integer-indexed columns. 
-For each Country and each Gender we will have an integer value from 0 to N, where N is a number of unique values in the column. 
+For each Country and for both Genders we will have an integer value from 0 to N, where N is a number of unique values in the column. 
 In case of country column, N is 3 as we have 3 countries in the data set.
 
 ```scala
@@ -299,7 +303,7 @@ val assembler = VectorAssembler()
   .setInputSizes(List.fill(continuesCols.length)(1).map(Integer.valueOf)*)
 ```
 
-By merging these columns into a single column, we slowly prepare training data for the final stage of the training pipeline, which is `LogisticRegression` model. 
+By merging these columns into a single column, we prepare training data for the final stage of the training pipeline, which is `LogisticRegression` model. 
 Its input format requires to fit a single column with all features per row.
 
 ### Normalise Numbers and Merge Columns
@@ -470,7 +474,7 @@ __Save Model data__:
 pipelineModel.save("target/customer-churn-model/pipeline")
 env.execute("Save PipelineModel")
 ```
-Do not forget to call `execute` method to trigger model saving task to disk.
+Do not forget to call `execute` method to trigger model saving at the specified path.
 
 In the result we will get the following metadata and data on disk:
 
