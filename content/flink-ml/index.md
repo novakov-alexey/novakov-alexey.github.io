@@ -21,36 +21,39 @@ As Flink runs on Java Virtual Machine, we are constrained by the tools which JVM
 
 # Supervised Machine Learning
 
-Before we dive into Flink specifics to apply Machine Learing, let's first define key points of the Supervised Machine Learning.
+Before we dive into Flink specifics to apply Machine Learing, let's first define key points of Supervised Machine Learning.
 
 In Supervised Machine Learning we feed data into the algorithm containing the right answers. 
 Then we check whether the algorithm can eventually learn those answers on its own by feeding new or test data. That means we supervise the algorithm until we reach desired model performance in terms of accuracy, error rate and other metrics. 
 
 Training phase is usually done on a batch data iteratively. In other words, our training data set is already prepared and stored on disk in one 
 or multiple files. Flink can read all of those files in streaming or batch mode. 
-However, it does not make sense much to use streaming mode, because a stream processing job wait for additional files on disk and won't terminate, 
-if we don't setup additional configuration like streaming - bounded mode to facilitate natural job termination. The same approach would be applicable for message queue as a source, where data set would be a sequence of messages, let's say in Kafka, which we need to read all to train the model.
+However, it does not make sense much to use streaming mode, because streaming job will start to poll for additional files on disk and won't terminate on its own, 
+unless special Flink configuration is set such like "streaming - bounded" mode to facilitate natural job termination. 
+The same approach would be applicable for a message queue as a training data source, where data set would be a sequence of messages, which we need to read all to eventaully train the model.
 
-There is another approach when ML model is trained on the "online data", i.e. it reads data continuously and also updates model weights as part of the training. 
-This process ideally never ends. Most common approach is actually training on offline data. 
-In this blog post we will focus on this approach. We will use Flink batch jobs to read prepared data and run training cycle to get a trained model (state). 
-Once trained model is ready, it will be stored on disk and then can be loaded by another job to do model inference as part of the business logic.
+There is another approach when ML model is trained on so called "online data", i.e. it reads real-time data continuously and also updates model weights as part of the training. 
+This process ideally never ends, because it is part of the production application. That means we train the model and use it to score real data in parallel. 
+
+Most common approach in Supervised Machine Learning these days is training on offline data in batch mode. 
+In this blog post we will focus on this approach specificly. We will use Flink batch jobs to read prepared data and run training cycle to get the trained model. 
+Once trained model is ready, it will be stored on disk and then can be loaded by another job to do model inference as part of the application logic.
 
 # Data Streaming and ML
 
 Let's quickly define basic definitions for training and inference to build up further concepts on top of them:
 
 __Model Training:__
-- It is iterative process run on the finite dataset
+- It is iterative process which runs on the finite dataset
 - Training is usually done on schedule (once per hour or day or week, i.e. depends on data updates)
-- If training is done on online data, then the training loop repeats infinitely and updates the internal model weights on every record or window / mini-batch
+- If training is done on online data, then the training loop repeats infinitely and updates internal model weights on every record or window / mini-batch
 
 __Model Inference:__
 - It is a call of a math function like "y = model(x)", where `x` is feature vector and `y` is prediction vector. 
     - In streaming mode: a call on every input record 
     - In batch mode: a call for entire mini-batch at once
 
-Both definitions are true for Supervised and Unsupervised Machine Learning.
+Both definitions above are true for Supervised and Unsupervised Machine Learning.
 
 __Model re-training and updates__
 
@@ -58,17 +61,17 @@ Once model is trained and stored on disk, it may become outdated very soon. Of c
 data to learn something new from it. In many business domains, data does not change fast, so we can train a model and use it for many days or months without
 re-training it again. 
 
-In order update a model in the running Flink job, we have several options:
+In order to update a model in the running Flink job, we have several options:
 
-For cases when Flink job calls a model inside the JVM or PythonVM:
-1. Restart Flink job with new model, if model loading done only on job startup.
-2. Reload ML model into memory periodically or on some event. This option minimises Flink job downtime.
+For cases when Flink job calls a model inside JavaVM or PythonVM:
+1. Restart Flink job loading newer model (for cases when ML model is loaded on job startup).
+2. Refresh ML model version in memory periodically or on some event. This option minimises Flink job downtime.
 
-For cases when Flink calls a model using remote procedure call (RPC), over the network (web-service, GRPC-service, etc.): 
-1. Job restart is not needed, but that external service may lead to the Flink job outage or temporary failures, when the external service is restarted.
+For cases when Flink calls a model using remote procedure call (RPC), i.e. over the network, the
+Flink job restart is not needed, but that external service may lead to the Flink job outage or temporary failures, when the external service is restarted.
 
-In order to mitigate external service outage or achieve zero-time outage for the Flink side, a DevOps team can apply different techniques:
-- Blue/Green deployments for the external service to serve the latest and previous model version in the same time
+In order to mitigate external service outage or achieve zero-time outage for the Flink side, a DevOps team in charge can apply different techniques such as:
+- Blue-Green deployments for the external service to serve the latest and previous model version in the same time
 - Additionally, configure a network load balancer to automatically switch to a new model version once it is up and running.
 
 
@@ -76,11 +79,11 @@ In order to mitigate external service outage or achieve zero-time outage for the
 
 As a Flink developer you might have a question - can we easily do ML training in Flink? Can it be also done with the popular ML libraries like Scikit-Learn, Pytorch, Tensorflow, etc.?
 
-The answer to the first question is yes, we can do ML tasks in Flink. As for the second question is rather no, than yes. We can't easilly leverage Flink distributed runtime to run training process efficiently. 
-Here I mean not just within Flink task, but using all Flink cluster task mmanagers. In best case, we can spread training process accross different tasks when running training phase with cross-validation (different training and test data set splits). 
-
-If no cross validation is used, then we will be running training on a single task within a single task manager. 
-Thus, this neglects the whole idea to use Flink runtime for training as it will be underutilised and will bring a lot of hassle without benefits. 
+The answer to the first question is yes, we can do ML tasks in Flink. As for the second question we can also sey yes, but it does not make sense to run training of Scikit-Learn based model in Flink, if it is not
+integrated with Flink runtime and its job graph operators. That said we can't easilly leverage Flink distributed runtime to run training process efficiently. 
+Ideally we want to use all Flink cluster task mmanagers. Certain tasks in ML training can still benefit from Flink runtime, for example training with cross-validation (different training and test data set splits).
+where every data split would be run on its own Flink task if we submit all splits concurently. If no cross validation is used, then we will be running training on a single task within a single task manager. 
+Thus, this neglects the whole idea to use Flink runtime for training as it will be underutilised and will bring a lot of extra work for a developer without giving benefits. 
 That said, the idea to use Flink without low-level integration of Flink tasks and operators with specific external library does not worth it. 
 It would be the same effect as we training ML model without Flink runtime, but directly on some VMs running ML programs sequentially or in parallel for different data set splits. 
 
@@ -88,13 +91,16 @@ The good news is Flink has its own ML module called [Flink ML](https://nightlies
 It fully utilises Flink tasks to distribute training process within a Flink cluster. Of course, Flink ML module limits us by only those ML algotithms, which it supports at the moment. 
 As of today, it is quite rich list of supported ML algorithms including typical data preparation algorithms, for example data normalisation. 
 
-When it comes to other libraries, which are coming from the Python or C++ world, we can only do a model inference.
-In order to load that model, we either use available JVM SDK of the target library or we can also use PyFlink and load any Python-wrapped model. 
-If our ML library has C/C++ interface, then we can also use Scala/Java wrappers for those libraries, for example `libtorch`. 
+## External Libraries
+
+When it comes to other libraries, which are coming from Python or C world, we can only use them in Flink to do a model inference.
+In order to load a model produced by external library, we either use available JVM SDK of that library or we can also use PyFlink and load any Python-based model. 
+If our ML library has C/C++ interface, then we can also use JVM language wrappers for those libraries, for example `libtorch` has Scala wrapper [storch](https://storch.dev/about.html). 
+In this case native library will be used via Java Native Interface.
 
 # Ways to do ML in Flink
 
- Let's look at the table below to see all options we have to do ML tasks in Flink:
+ Let's look at the table below with all options we have to apply Machine Learning in Flink:
 
 | Library Name / Approach   |  Native Training Support | Inference Support | Remark                                        |    
 | ------------------------- | ----------------- | ------------------| --------------------------------------------- |
@@ -105,11 +111,11 @@ If our ML library has C/C++ interface, then we can also use Scala/Java wrappers 
 | Scala wrappers for C/C++ libraries (libtorch, etc.) |   |x   | Today is mainly limited to Pytorch or Tensorflow |
  
 
-\* when native training with Flink runtime is not supported (empty table cell above), 
-it means we can train a model outside of Flink, e.g. in any other programming language.
+Empty table cell above means we train a model outside of Flink, e.g. in any other programming language.
 
 # Generic ML Workflow with Flink
 
+Below workflows use Flink at the Inference phase only (right side). In the most common situation, development teams establish their training pipelines outside of Flink using external libraries.
 {{ resize_image(path="flink-ml/images/ml-workflow-with-flink.png", width=1200, height=800, op="fit_width") }}
 
 <p align="center">Figure 1. Training and Inference workflows based on Flink application</p>
@@ -505,7 +511,10 @@ val validateResult = model.transform(validateSet)(0)
 
 ## Flink ML Summary
 
-In result we were able to create Flink job which can learn and train ML model like `LogisticResgression`. As part of the learning process, we were able to 
-prepare data in the proper format using Flink ML encoders and scalers. In case we want to use this model further, we can store and load the model state 
-in the same or in a completely new Flink job. This allows us to train ML models in Flink on a specific environment and use them later in production.
+In result we were able to create a Flink job which can learn and train ML model for Customer Churn Analysis using `LogisticResgression` algorithm. 
+As part of the learning process, we were able to  prepare data in the proper format using Flink ML encoders and scalers utilities. 
+In case we want to use the trained model further, we can store and load its state in the same or in a completely new Flink job. 
+This allows us to train ML models in Flink on a specific environment and use them later in production.
+
+Flink ML also allows to extend it with own ML algroithm using [FlinkML API](https://nightlies.apache.org/flink/flink-ml-docs-master/docs/development/overview/).
 
