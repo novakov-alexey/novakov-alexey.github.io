@@ -79,9 +79,9 @@ In order to mitigate external service outage or achieve zero-time outage for the
 
 As a Flink developer you might have a question - can we easily do ML training in Flink? Can it be also done with the popular ML libraries like Scikit-Learn, Pytorch, Tensorflow, etc.?
 
-The answer to the first question is yes, we can do ML tasks in Flink. As for the second question we can also sey yes, but it does not make sense to run training of Scikit-Learn based model in Flink, if it is not
-integrated with Flink runtime and its job graph operators. That said we can't easilly leverage Flink distributed runtime to run training process efficiently. 
-Ideally we want to use all Flink cluster task mmanagers. Certain tasks in ML training can still benefit from Flink runtime, for example training with cross-validation (different training and test data set splits).
+The answer to the first question is yes, we can do ML tasks in Flink. As for the second question we can also answer as yes, however it does not make sense to run training of Scikit-Learn based model in Flink, if it is not
+integrated with Flink runtime and its job operators. That said, we can't easilly leverage Flink distributed runtime to run training process efficiently. 
+Ideally we want to use all Flink cluster task mmanagers. Certain tasks in ML training can still benefit from Flink runtime. For example, training with cross-validation (different training and test data set splits).
 where every data split would be run on its own Flink task if we submit all splits concurently. If no cross validation is used, then we will be running training on a single task within a single task manager. 
 Thus, this neglects the whole idea to use Flink runtime for training as it will be underutilised and will bring a lot of extra work for a developer without giving benefits. 
 That said, the idea to use Flink without low-level integration of Flink tasks and operators with specific external library does not worth it. 
