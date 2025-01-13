@@ -1,7 +1,7 @@
 +++
 title="ONNX Model format in Flink "
 date=2025-01-10
-draft = true
+draft = false
 
 [extra]
 category="blog"
@@ -12,14 +12,15 @@ tags = ["flink", "machine learning", "scala", "tensorflow", "onnx"]
 categories = ["scala"]
 +++
 
-Most popular eco-system to train ML model these days is Python and C/C++ based libraries. An example of model training can be a Logistic Regression algorithms, from ScikitLearn package or
+The most popular eco-system to train ML model these days is Python and C/C++ based libraries. An example of model training can be a Logistic Regression algorithms, from ScikitLearn package or
 more advanced neural networks algorithms offered by Tensorflow, Pytorch and others. There are lots of tools and libraries in Python world to facilitate training and model serving. 
 
-In order bring trained models in Keras or SciKitLean into a Flink application, we can use cross-platform file formats such as ONNX and PMML (in the past). These formats also come with language runtimes.
+In order to bring trained models in Keras or SciKitLean into a Flink application, we can use cross-platform file formats such as ONNX and PMML (in the past). These formats also come with language runtimes.
 In Flink case, we select JVM SDK to run inference logic inside the Flink job. 
 
 Let's look at the example on how to train Logistic Regression in Python using Keras and then use trained model in ONNX format inside Flink.
 
+{{ resize_image(path="flink-model-formats/images/onnx-logo.png", width=1200, height=600, op="fit_width") }}
 
 <!-- more -->
 
@@ -64,7 +65,7 @@ In result, we get a model in the ONNX format under `models/model.onnx` file path
 
 # Inference in Flink
 
-Now we are almost ready to use trained model and run inference for the live client data. 
+Now we are almost ready to use trained model and run inference for the live data. 
 However, there is one caveat in data preparation which we need take care of. 
 
 While training ANN in Python we encoded input raw data using SciKitLearn package: categorical features were one-hot encoded, then all columns were 
@@ -82,7 +83,7 @@ __Inference Part__:
 
 _Option 1 - Feature extraction is implemented again:_
 
-In Option 1., we use own code inside the Flink job to transform raw data into feature vector which we can feed directly into the ML model to get predictions.
+In Option 1., we use own code inside the Flink job to transform raw data into feature vectors which we can feed directly into the ML model to get predictions.
 
 {{ resize_image(path="flink-model-formats/images/inference-op-1.png", width=600, height=600, op="fit_width") }}
 <p align="center">Figure 2. Data Preparation in Flink job itself</p>
@@ -101,7 +102,7 @@ In this blog post we select __Option 1.__ just demonstrate that standard feature
 not hard to implement in Flink itself. Downside of this option is that we repeat ourselves which makes overall workflow maintenance
 more labor intensive or even error-prone, if this logic is not synchronized between both phases. 
 If we imagine that this common logic would be stored in different repositories or handled by different 
-development teams, then __Option 2.__ would be preferable. 
+development teams, then __Option 2.__ would be preferable.
 
 ## Job Implementation
 
@@ -191,9 +192,9 @@ val pipeline = Pipeline(stages)
 val featureExtractor = pipeline.fit(trainData)  
 ```
 
-Above we define schema of CSV file which will be used to train feature extractors such as encoder and scaler.
+Above we define a schema of CSV file which will be used to train feature extractors such as encoder and scaler.
 This extra-training is going to be done only once on the job start time. For the faster start up we can also save the `featureExtractor` state
-to disk and load it on job start instead of training it every time.
+on disk and load it on job start instead of training it every time.
 
 ### 
 
@@ -293,8 +294,8 @@ env.execute("CustomerChurnAnalysis")
 
 Job graph combines together Table API source table and DataStream map functions. 
 In the first `map` we cast table row to the appropriate input of the `CustomerChurnClassifier`. The last one runs the model inference and prints the prediction result into the
-console. That row casting is unfortunate price from using Table API and crossing the boundaries to use the DataStream API further. One more option with regards to 
-inference function is it could be implemented also in Table API as User-Defined-Function (UDF).
+console. That row casting is unfortunate price from using Table API and crossing the boundaries to use the DataStream API further. Alternatively we could try 
+to implement inference logic using Table API as User-Defined-Function (UDF).
 
 {{ resize_image(path="flink-model-formats/images/overall-jobgraph.png", width=1200, height=600, op="fit_width") }}
 {{ resize_image(path="flink-model-formats/images/job-state-tasks.png", width=400, height=400, op="fit_width") }}
@@ -303,12 +304,12 @@ inference function is it could be implemented also in Table API as User-Defined-
 {{ resize_image(path="flink-model-formats/images/job-graph-inference-part.png", width=800, height=800, op="fit_width") }}
 <p align="center">Figure 5. Bottom part of the Flink job graph with focus on inference</p>
 
-Above Flink job graph shows quite a lot tasks. The reason for that is feature extraction done with Flink ML distributes every internal operation as a task. This is quite useful
-when we deal with a lot data, so that we process it at scale. 
-The running 6 tasks are in the red  shape. They are responsible for model inference. 
-All other 21 tasks on top are Flink ML tasks responsible for training of feature extraction operators. These tasks transition to finished state quite fast, as encoders gets trained within 10 seconds based on the training data set of 10k rows we used.
+Above Flink job graph shows quite a lot tasks. This is because the feature extraction is done with Flink ML which schedules every internal operation as a task. 
+This is quite useful when we deal with a lot data, so that we can process it very fast. The are 6 tasks running highlighted in the red shape. 
+They are responsible for the model inference. All other 21 tasks on top are Flink ML tasks are scheduled for training of the feature extraction operators. 
+These tasks transition to `finished` state quite fast, as encoders gets trained within 10 seconds based on the training data set of 10k rows we used.
 
-The entire code of the Flink job with ONNX format model is published in Git repository: 
+The entire code of the Flink job using ONNX format model is published in Git repository: 
 [flink-onnx](https://github.com/novakov-alexey/flink-onnx)
 
 # Summary
@@ -317,4 +318,4 @@ As Flink Developers, we can easily embed ML models into our Flink jobs in format
 This allows us to train ML algorithms in any language/platform we want, including Python. 
 One important point to think in advance is the feature extraction. 
 Architects should decide how to implement feature extraction logic once and reuse it everywhere: training and inference. 
-Embedding ML models inside the Flink job allows us to avoid any network latency in case ML model would be served as a service via HTTP/RPC API.
+Embedding ML models inside the Flink job allows us to avoid any network latency comparing with alternative approach when an ML model is served as a service via HTTP/RPC API.
