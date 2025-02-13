@@ -39,14 +39,15 @@ _Development practice:_
 - Pair Programming
 
 _Technical expertise:_
-- Developing commercial applications on Kubernetes, Hadoop, JVM, Oracle, Linux, Docker and Cloud platforms
+- Developing commercial applications on Kubernetes/Docker, Hadoop, JVM, Oracle, Linux, and Cloud platforms
 - Developing specifications and design solution documents for long term projects
 - Deep and rich expertise on the languages: Java, Scala, JavaScript, HTML/CSS, PHP
 
 _Domain knowledge:_
 - Banking, Financial Instruments (Stocks, Exchanges, Forex)
+- CRM, Billing
 - Telecom, Mobile Telephony
-- Data Analytics
+- Data Analytics with SQL, Spark and Flink
 
 ---
 
@@ -65,11 +66,11 @@ _Nov 2022 – present_
     <tr>
         <td align="left">Responsibilities</td>                
         <td align="left">design and support data streaming architectures, architecture reviews, consulting, pre-sale activities, 
-        cooperation with in-house product team on giivng feature requests and initial feature testing</td>        
+        cooperation with in-house product team on giving feature requests and initial feature testing</td>        
     </tr>
     <tr>
         <td align="left">Technologies</td>
-        <td align="left">Flink, Kubernetes, AWS, GCP, Scala, Java, SQL, Python, Kafka, Paimon</td>        
+        <td align="left">Flink, Kubernetes, OpenShift, Docker, Terraform, AWS (S3, MSK, RDS, Kinesis, Cloud Formation, EKS), GCP, Azure, Scala, Java, SQL, Python, Kafka, Paimon</td>        
     </tr>
 </table>  
 &nbsp;   
