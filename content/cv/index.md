@@ -10,8 +10,7 @@ toc_disabled=true
 
 **Alexey Novakov**
 
-Software Solution Architect, Senior Software Engineer,
-[Rhein-Main Scala Enthusiasts Meetup speaker](https://www.meetup.com/Rhein-Main-Scala-Enthusiasts)
+Software Solution Architect, Senior Software Engineer, Conference and Meetup Speaker
 
 **Birthday:** 15th of June 1986
 
@@ -26,6 +25,7 @@ Software Solution Architect, Senior Software Engineer,
 
 - Current: [https://novakov-alexey.github.io](https://novakov-alexey.github.io)
 - Before at Medium: [https://medium.com/se-notes-by-alexey-novakov](https://medium.com/se-notes-by-alexey-novakov)
+- Past Meetup speaker exp.: [Rhein-Main Scala Enthusiasts Meetup speaker](https://www.meetup.com/Rhein-Main-Scala-Enthusiasts)
 
 **Education:** Specialist in Computer Science 2003-2008, Donetsk State University of Informatics and Artificial intelligence, Ukraine
 
@@ -65,12 +65,12 @@ _Nov 2022 – present_
     </tr>
     <tr>
         <td align="left">Responsibilities</td>                
-        <td align="left">design and support data streaming architectures, architecture reviews, consulting, pre-sale activities, 
-        cooperation with in-house product team on giving feature requests and initial feature testing</td>        
+        <td align="left">design and support streaming data processing architecture, review client architecture, technical consulting, pre-sale activities, conference speaking, 
+        work with product team on giving feature requests and feature and release testing</td>        
     </tr>
     <tr>
         <td align="left">Technologies</td>
-        <td align="left">Flink, Kubernetes, OpenShift, Docker, Terraform, AWS (S3, MSK, RDS, Kinesis, Cloud Formation, EKS), GCP, Azure, Scala, Java, SQL, Python, Kafka, Paimon</td>        
+        <td align="left">Apache Flink, Kubernetes, OpenShift, Docker, Terraform, AWS (S3, MSK, RDS, Kinesis, Cloud Formation, EKS), GCP, Azure, Scala, Java, SQL, Python, Kafka, Paimon</td>        
     </tr>
 </table>  
 &nbsp;   
