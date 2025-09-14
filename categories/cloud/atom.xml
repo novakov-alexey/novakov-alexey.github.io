@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Alexey Novakov Notes - cloud</title>
+    <subtitle>Alexey Novakov: Software Engineering Notes</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://novakov-alexey.github.io/categories/cloud/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2020-12-08T00:00:00+00:00</updated>
+    <id>https://novakov-alexey.github.io/categories/cloud/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Path to AWS Solution Architect Certification</title>
+        <published>2020-12-08T00:00:00+00:00</published>
+        <updated>2020-12-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/aws-saa-exam/"/>
+        <id>https://novakov-alexey.github.io/aws-saa-exam/</id>
+        
+        <summary type="html">&lt;p&gt;Earlier this year I started learning few Udemy courses for &lt;a href=&quot;https:&#x2F;&#x2F;aws.amazon.com&#x2F;certification&#x2F;certified-solutions-architect-associate&#x2F;&quot;&gt;AWS Solution Architect Associate Certification&lt;&#x2F;a&gt;. My initial plan was just to get some basic knowledge about AWS services, not the certification itself. Before starting the course, I did not have any experience with native AWS services. I never used EC2 instances to launch something in production. However, I used EC2 fleet of instances to deploy Kubernetes cluster. I started my path to cloud-native tools with Docker and shifted later to Kubernetes and OpenShift. Pure AWS services were never on my radar. I think the experience of deploying Kubernetes on top of the EC2 instances is one thing, but using different AWS services like ELB, EBS, EFS, EC2 and S3 is completely another story. So I decided it is time to get to know what are those AWS main services. After coming to the end of the Udemy course, I realised it worth to go for certification to make a final point in my AWS education. As I already spent so much time.&lt;&#x2F;p&gt;
+
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;aws-exam.23e3f2b0e6c869f6.png&quot; class=&quot;center-image&quot;&#x2F;&gt;
+&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;</summary>
+        
+    </entry>
+</feed>

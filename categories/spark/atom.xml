@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Alexey Novakov Notes - spark</title>
+    <subtitle>Alexey Novakov: Software Engineering Notes</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://novakov-alexey.github.io/categories/spark/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2022-08-07T00:00:00+00:00</updated>
+    <id>https://novakov-alexey.github.io/categories/spark/atom.xml</id>
+    <entry xml:lang="en">
+        <title>CDC with Delta Lake Streaming</title>
+        <published>2022-08-07T00:00:00+00:00</published>
+        <updated>2022-08-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/delta-lake/"/>
+        <id>https://novakov-alexey.github.io/delta-lake/</id>
+        
+        <summary type="html">
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;delta-lake-logo.50ccedba307a78e1.png&quot; class=&quot;center-image&quot;&#x2F;&gt;
+&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;
+&lt;p&gt;Change Data Capture (CDC) is a popular technique for replication of data from OLTP to OLAP data store.
+Usually CDC tools integrate with transactional logs of relational databases and thus are mainly dedicated to replicate all possible data changes from relational databases. NoSQL databases are usually coming with built-in CDC for any possible data change (insert, update, delete), for example AWS DynamoDB Streams.&lt;&#x2F;p&gt;
+&lt;p&gt;In this blog-post, we will look at &lt;a href=&quot;https:&#x2F;&#x2F;docs.delta.io&#x2F;latest&#x2F;index.html&quot;&gt;Delta Lake&lt;&#x2F;a&gt; table format, which supports &lt;a href=&quot;https:&#x2F;&#x2F;docs.delta.io&#x2F;latest&#x2F;delta-update.html#upsert-into-a-table-using-merge&quot;&gt;&quot;merge&quot;&lt;&#x2F;a&gt; operation. This operation is useful when we need to update replicated data in Data Lake.&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+</feed>

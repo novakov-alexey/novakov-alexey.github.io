@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#ffffff" name="theme-color" />
+  <meta content="#da532c" name="msapplication-TileColor" />
+
+  
+  
+  
+  
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css"
+    rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <link href='https://novakov-alexey.github.io/site.css' rel="stylesheet" />
+
+  
+  
+
+  <title>
+    
+Alexey Novakov Notes | Machine Learning with Flink
+
+  </title>
+
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/201b8d5e05.js"></script>
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-49N5BCWL0F"></script>
+  <script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-49N5BCWL0F");
+  </script>
+  
+</head>
+
+<body class="has-background-white">
+  
+  <nav aria-label="section navigation" class="navbar is-light" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item has-text-weight-bold" href="https:&#x2F;&#x2F;novakov-alexey.github.io">Alexey Novakov Notes</a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navMenu" role="button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end has-text-centered">
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;'>
+            Blog
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;cv'>
+            CV
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;presentations'>
+            Presentations
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;tags'>
+            Tags
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;categories'>
+            Categories
+          </a>
+          
+          <a class="navbar-item" id="nav-search" title="Search" data-target="#search-modal">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </a>
+          <a class="navbar-item" id="dark-mode" title="Switch to dark theme">
+            <span class="icon">
+              <i class="fas fa-adjust"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  
+
+  
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <article class="box">
+          <h1 class="title is-1">
+            Machine Learning with Flink
+          </h1>
+          <p class="subtitle"></p>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-8">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="fas fa-user"></i>
+    </span>
+    Alexey Novakov published on
+    <span class="icon">
+      <i class="far fa-calendar-alt"></i>
+    </span>
+    <time datetime='2024-11-23'>November 23, 2024</time>
+  </p>
+
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="far fa-clock"></i>
+    </span>
+    14 min,
+    <span class="icon">
+      <i class="fas fa-pencil-alt"></i>
+    </span>
+    2777 words
+  </p>
+
+            </div>
+            <div class="column">
+              
+              
+  <p>
+    <span class="has-text-black has-text-weight-normal">Categories:</span>
+    
+      <a class="link has-text-weight-light" href='https://novakov-alexey.github.io/categories/scala/'>
+        <span class="icon is-small">
+          <i class="fas fa-folder fa-xs"></i>
+        </span>
+        scala
+      </a>
+    
+  </p>
+
+              
+            </div>
+            <div class="column has-text-right-desktop">
+              
+              
+  <p>
+    <span class="has-text-black has-text-weight-normal">Tags:</span>
+    
+      <a class="link has-text-weight-light" href='https://novakov-alexey.github.io/tags/flink/'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        flink
+      </a>
+    
+      <a class="link has-text-weight-light" href='https://novakov-alexey.github.io/tags/machine-learning/'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        machine learning
+      </a>
+    
+      <a class="link has-text-weight-light" href='https://novakov-alexey.github.io/tags/scala/'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        scala
+      </a>
+    
+      <a class="link has-text-weight-light" href='https://novakov-alexey.github.io/tags/tensorflow/'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        tensorflow
+      </a>
+    
+      <a class="link has-text-weight-light" href='https://novakov-alexey.github.io/tags/pytorch/'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        pytorch
+      </a>
+    
+  </p>
+
+              
+            </div>
+          </div>
+          <div class="content mt-2 has-text-justified">
+            <p>If you want to add Machine Learning capabilities into your Flink job then this article is for you.
+As Flink runs on Java Virtual Machine, we are constrained by the tools which JVM supports. However, there are still plenty of options to choose in order to perform model training and inference as part of a Flink job.</p>
+
+
+<img src="https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;processed_images&#x2F;flink-ml-logo.faf91aaec1efab16.png" class="center-image"/>
+<br/><br/><span id="continue-reading"></span><h1 id="supervised-machine-learning">Supervised Machine Learning</h1>
+<p>Before we dive into Flink specifics to apply Machine Learning, let's first define key points of Supervised Machine Learning.</p>
+<p>In Supervised Machine Learning we feed data into the algorithm containing the right answers.
+Then we check whether the algorithm can eventually learn those answers on its own by feeding new or test data. That means we supervise the algorithm until we reach desired model performance in terms of accuracy, error rate and other metrics.</p>
+<p>Training phase is usually done on a batch data iteratively. In other words, our training data set is already prepared and stored on disk in one
+or multiple files. Flink can read all of those files in streaming or batch mode.
+However, it does not make sense much to use streaming mode, because streaming job will start to poll for additional files on disk and won't terminate on its own,
+unless special Flink configuration is set such like "streaming - bounded" mode to facilitate natural job termination.
+The same approach would be applicable for a message queue as a training data source, where data set would be a sequence of messages, which we need to read all to eventually train the model.</p>
+<p>There is another approach when ML model is trained on so called "online data", i.e. it reads real-time data continuously and also updates model weights as part of the training.
+This process ideally never ends, because it is part of the production application. That means we train the model and use it to score real data in parallel.</p>
+<p>Most common approach in Supervised Machine Learning these days is training on offline data in batch mode.
+In this blog post we will focus on this approach specifically. We will use Flink batch jobs to read prepared data and run training cycle to get the trained model.
+Once trained model is ready, it will be stored on disk and then can be loaded by another job to do model inference as part of the application logic.</p>
+<h1 id="data-streaming-and-ml">Data Streaming and ML</h1>
+<p>Let's quickly define basic definitions for training and inference to build up further concepts on top of them:</p>
+<p><strong>Model Training:</strong></p>
+<ul>
+<li>It is iterative process which runs on the finite dataset</li>
+<li>Training is usually done on schedule (once per hour or day or week, i.e. depends on data updates)</li>
+<li>If training is done on online data, then the training loop repeats infinitely and updates internal model weights on every record or window / mini-batch</li>
+</ul>
+<p><strong>Model Inference:</strong></p>
+<ul>
+<li>It is a call of a math function like "y = model(x)", where <code>x</code> is feature vector and <code>y</code> is prediction vector.
+<ul>
+<li>In streaming mode: a call on every input record</li>
+<li>In batch mode: a call for entire mini-batch at once</li>
+</ul>
+</li>
+</ul>
+<p>Both definitions above are true for Supervised and Unsupervised Machine Learning.</p>
+<p><strong>Model re-training and updates</strong></p>
+<p>Once model is trained and stored on disk, it may become outdated very soon. Of course, it depends whether our environment may get new
+data to learn something new from it. In many business domains, data does not change fast, so we can train a model and use it for many days or months without
+re-training it again.</p>
+<p>In order to update a model in the running Flink job, we have several options:</p>
+<p>For cases when Flink job calls a model inside JavaVM or PythonVM:</p>
+<ol>
+<li>Restart Flink job loading newer model (for cases when ML model is loaded on job startup).</li>
+<li>Refresh ML model version in memory periodically or on some event. This option minimizes Flink job downtime.</li>
+</ol>
+<p>For cases when Flink calls a model using remote procedure call (RPC), i.e. over the network, the
+Flink job restart is not needed, but that external service may lead to the Flink job outage or temporary failures, when the external service is restarted.</p>
+<p>In order to mitigate external service outage or achieve zero-time outage for the Flink side, a DevOps team in charge can apply different techniques such as:</p>
+<ul>
+<li>Blue-Green deployments for the external service to serve the latest and previous model version in the same time</li>
+<li>Additionally, configure a network load balancer to automatically switch to a new model version once it is up and running.</li>
+</ul>
+<h1 id="ml-libraries-for-flink">ML Libraries for Flink</h1>
+<p>As a Flink developer you might have a question - can we easily do ML training in Flink? Can it be also done with the popular ML libraries like Scikit-Learn, Pytorch, Tensorflow, etc.?</p>
+<p>The answer to the first question is yes, we can do ML tasks in Flink. As for the second question we can also answer as yes, however it does not make sense to run training of Scikit-Learn based model in Flink, if it is not
+integrated with Flink runtime and its job operators. That said, we can't easily leverage Flink distributed runtime to run training process efficiently.
+Ideally we want to use all Flink cluster task managers. Certain tasks in ML training can still benefit from Flink runtime. For example, training with cross-validation (different training and test data set splits).
+where every data split would be run on its own Flink task if we submit all splits concurrently. If no cross validation is used, then we will be running training on a single task within a single task manager.
+Thus, this neglects the whole idea to use Flink runtime for training as it will be underutilized and will bring a lot of extra work for a developer without giving benefits.
+That said, the idea to use Flink without low-level integration of Flink tasks and operators with specific external library does not worth it.
+It would be the same effect as we training ML model without Flink runtime, but directly on some VMs running ML programs sequentially or in parallel for different data set splits.</p>
+<p>The good news is Flink has its own ML module called <a href="https://nightlies.apache.org/flink/flink-ml-docs-master/">Flink ML</a>. Flink ML supports training and model inference.
+It fully utilizes Flink tasks to distribute training process within a Flink cluster. Of course, Flink ML module limits us by only those ML algorithms, which it supports at the moment.
+As of today, it is quite rich list of supported ML algorithms including typical data preparation algorithms, for example data normalization.</p>
+<h2 id="external-libraries">External Libraries</h2>
+<p>When it comes to other libraries, which are coming from Python or C world, we can only use them in Flink to do a model inference.
+In order to load a model produced by external library, we either use available JVM SDK of that library or we can also use PyFlink and load any Python-based model.
+If our ML library has C/C++ interface, then we can also use JVM language wrappers for those libraries, for example <code>libtorch</code> has Scala wrapper <a href="https://storch.dev/about.html">storch</a>.
+In this case native library will be used via Java Native Interface.</p>
+<h1 id="ways-to-do-ml-in-flink">Ways to do ML in Flink</h1>
+<p>Let's look at the table below with all options we have to apply Machine Learning in Flink:</p>
+<table><thead><tr><th>Library Name / Approach</th><th>Native Training Support</th><th>Inference Support</th><th>Remark</th></tr></thead><tbody>
+<tr><td><a href="https://nightlies.apache.org/flink/flink-ml-docs-release-2.3/">Flink ML</a></td><td>x</td><td>x</td><td>Easy to use. Most common algorithms are supported</td></tr>
+<tr><td><a href="https://github.com/flink-extended/dl-on-flink">Deep Learning on Flink</a>: Tensorflow, Pytorch integration</td><td>x</td><td>x</td><td>Allows to train inside a Flink cluster. Caveat: this community project requires dependency upgrades</td></tr>
+<tr><td>JVM runtimes for model formats like PMML, ONNX  (ex: onnx-scala, flink-jpmml)</td><td></td><td>x</td><td>Fast and generic way</td></tr>
+<tr><td>Python libraries via Flink Table API (UDF)</td><td></td><td>x</td><td>Any Python library can be used, but it can be slow due to the PythonVM itself and data exchange</td></tr>
+<tr><td>Scala wrappers for C/C++ libraries (libtorch, etc.)</td><td></td><td>x</td><td>Today is mainly limited to Pytorch or Tensorflow</td></tr>
+</tbody></table>
+<p>Empty table cell above means we train a model outside of Flink, e.g. in any other programming language.</p>
+<h1 id="generic-ml-workflow-with-flink">Generic ML Workflow with Flink</h1>
+<p>Below workflows use Flink at the Inference phase only (right side). In the most common situation, development teams establish their training pipelines outside of Flink using external libraries.
+
+
+<img src="https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;processed_images&#x2F;ml-workflow-with-flink.318fa3c8bfc6c5b1.png" class="center-image"/>
+<br/><br/></p>
+<p align="center">Figure 1. Training and Inference workflows with and w/o Flink</p>
+<h2 id="training">Training</h2>
+<p>In the <strong>Training</strong> phase we run an application, which (1) reads data from disk, object storage or consumes a set of data from messaging system like Apache Kafka. This application can be a Flink job which uses FlinkML module or some other ML Framework via PyFlink. The ML application can (2) consume data in mini-batches
+or read it record by record.
+While running a training loop, the application updates current model weights in memory and (3) stores them periodically to a persistent storage (file system, object storage like AWS S3). Training loop usually runs dozen of times until it reaches certain thresholds of the training metrics and some other control conditions.</p>
+<h2 id="inference">Inference</h2>
+<p>In the <strong>Inference</strong> phase we run Flink Job which may or may not share some code with the training job.
+The main point is that the inference Flink job loads already trained model and uses the same ML framework to call the model. At the beginning, inference job reads (1) data similarly to the training job, but this time it reads unseen data to (2) apply ML model and stores the results to the sink system. Usually the results are stored on every record to (3) messaging system or some persistent storage.</p>
+<h1 id="flink-ml-module">Flink ML Module</h1>
+<p>In this blog we uncover Flink ML module and look at its applications. In the next blog posts we look at further ways for ML tasks in Flink such as ONNX, PyFlink and C/C++ wrappers.</p>
+<p>Flink ML module supports training and inference for the most popular supervised and unsupervised ML algorithms.
+This module uses Flink job primitives to build a distributed graph of operators to perform model training or inference.
+ML job runs in distributed mode utilizing all available Flink task managers in the cluster.</p>
+<p>Flink ML algorithms are implemented as operators. You can see them in the Flink UI when opening job graph visualization. Flink's Table API is a basis for Flink ML. It uses Table type to represent input and output data.</p>
+
+
+<img src="https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;processed_images&#x2F;flink-ml-job-graph.4c054e935f7130a1.png" class="center-image"/>
+<br/><br/><p align="center">Figure 2. Flink Job graph of LogisticRegression model training and validation.</p>
+<p>Above figure shows a large Flink Job graph from the Flink UI, which is built by Flink Table API and Flink ML to run data preparation and Logistic Regression training process.
+We will see how to train such a model in details further.</p>
+<h2 id="algorithms-supported-by-the-flinkml">Algorithms supported by the FlinkML</h2>
+<table><thead><tr><th>Task</th><th>Algorithms</th></tr></thead><tbody>
+<tr><td>Classification</td><td>K-Nearest Neighbor, Linear SVC, Logistic Regression, Naive Bayes</td></tr>
+<tr><td>Clustering</td><td>AgglomerativeClustering, Kmeans</td></tr>
+<tr><td>Recommendation</td><td>Swing</td></tr>
+<tr><td>Regression</td><td>Linear Regression</td></tr>
+<tr><td>Statistics</td><td>ChiSqTest</td></tr>
+<tr><td>Evaluation</td><td>Binary Classification, Evaluator</td></tr>
+<tr><td>Feature Engineering</td><td>Normalizer, Scalers, Binarizer  and many others</td></tr>
+<tr><td>Stats</td><td>ChiSqTest</td></tr>
+</tbody></table>
+<h2 id="example-logistic-regression">Example: Logistic Regression</h2>
+<p>Let's implement an ML application in Flink for <strong>Customer Churn Analysis</strong> by using Flink ML's Logistic Regression algorithm. This use case is quite typical task for enterprises which want to find  unhappy customers and offer better conditions to retain them.</p>
+<p>The goal of our model is to predict whether a customer may leave a bank or not.</p>
+<p>As clients data, we use syntetic data set prepared and stored in CSV file format in local filesystem.
+Clients data has all required columns to train the ML model.</p>
+<h2 id="data-preparation">Data Preparation</h2>
+<p>Below is the data sample in CSV format which we will use by the training job:</p>
+<pre data-lang="csv" style="background-color:#2e3440;color:#d8dee9;" class="language-csv "><code class="language-csv" data-lang="csv"><span style="color:#81a1c1;">RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited
+</span><span style="color:#b48ead;">1</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">15634602</span><span style="color:#81a1c1;">,Hargrave,</span><span style="color:#b48ead;">619</span><span style="color:#81a1c1;">,France,Female,</span><span style="color:#b48ead;">42</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">2</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">0</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">1</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">1</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">1</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">101348.88</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">1
+</span><span style="color:#b48ead;">2</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">15647311</span><span style="color:#81a1c1;">,Hill,</span><span style="color:#b48ead;">608</span><span style="color:#81a1c1;">,Spain,Female,</span><span style="color:#b48ead;">41</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">1</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">83807.86</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">1</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">0</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">1</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">112542.58</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">0
+</span><span style="color:#b48ead;">3</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">15619304</span><span style="color:#81a1c1;">,Onio,</span><span style="color:#b48ead;">502</span><span style="color:#81a1c1;">,France,Female,</span><span style="color:#b48ead;">42</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">8</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">159660.8</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">3</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">1</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">0</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">113931.57</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">1
+</span><span style="color:#b48ead;">4</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">15701354</span><span style="color:#81a1c1;">,Boni,</span><span style="color:#b48ead;">699</span><span style="color:#81a1c1;">,France,Female,</span><span style="color:#b48ead;">39</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">1</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">0</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">2</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">0</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">0</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">93826.63</span><span style="color:#81a1c1;">,</span><span style="color:#b48ead;">0
+</span></code></pre>
+<p>For our application we skip irrelevant columns such as RowNumber, CustomerId, Surname and use all other columns (features) of this dataset:</p>
+<pre data-lang="csv" style="background-color:#2e3440;color:#d8dee9;" class="language-csv "><code class="language-csv" data-lang="csv"><span style="color:#81a1c1;">CreditScore,
+</span><span style="color:#81a1c1;">Geography,
+</span><span style="color:#81a1c1;">Gender,
+</span><span style="color:#81a1c1;">Age,
+</span><span style="color:#81a1c1;">Tenure,
+</span><span style="color:#81a1c1;">Balance,
+</span><span style="color:#81a1c1;">NumOfProducts,
+</span><span style="color:#81a1c1;">HasCrCard,
+</span><span style="color:#81a1c1;">IsActiveMember,
+</span><span style="color:#81a1c1;">EstimatedSalary
+</span></code></pre>
+<p>Column <code>Exited</code> is our target label to predict. It contains binary value such as 0 or 1, which encodes the following logic:</p>
+<ul>
+<li>0 - client won't exit the bank;</li>
+<li>1 - client will exit the bank</li>
+</ul>
+<p>Before we feed the selected data columns into the any ML algorithm, we need to transform this data
+into numerical format. At this point we start to name data columns as features. Categorical features
+should be encoded with one-hot encoder, numerical features also known as continues features should be normalized. Specific data encoding and
+normalization is needed to achieve the highest model accuracy and the lowest error rate during the training or simply saying this helps to achieve the best
+learning performance in terms quality.</p>
+<p>To learn more on feature engineering topic I advise you to read special literature on that. In this blog post we focus on Flink ML module itself.</p>
+<h3 id="load-csv-as-flink-table">Load CSV as Flink Table</h3>
+<p>First we use Flink DataStream API to load tabular CSV data from file and parse it into the Row type.</p>
+<pre data-lang="scala" style="background-color:#2e3440;color:#d8dee9;" class="language-scala "><code class="language-scala" data-lang="scala"><span style="color:#81a1c1;">val source = </span><span style="color:#8fbcbb;">FileSource
+</span><span>    </span><span style="color:#81a1c1;">.</span><span>forRecordStreamFormat(
+</span><span>      </span><span style="color:#8fbcbb;">TextLineInputFormat</span><span>()</span><span style="color:#eceff4;">,
+</span><span>      filePath
+</span><span>    )
+</span><span>    </span><span style="color:#81a1c1;">.</span><span>build()
+</span><span>
+</span><span style="color:#81a1c1;">val csvStream =</span><span> env
+</span><span>    </span><span style="color:#81a1c1;">.</span><span>fromSource(source</span><span style="color:#eceff4;">, </span><span style="color:#8fbcbb;">WatermarkStrategy</span><span style="color:#81a1c1;">.</span><span>noWatermarks()</span><span style="color:#eceff4;">, </span><span style="color:#a3be8c;">&quot;trainingData&quot;</span><span>)
+</span><span>    </span><span style="color:#81a1c1;">.</span><span>filter(l </span><span style="color:#81a1c1;">=&gt;</span><span> !l</span><span style="color:#81a1c1;">.</span><span>startsWith(</span><span style="color:#a3be8c;">&quot;#&quot;</span><span>)) </span><span style="color:#616e88;">// removing comments
+</span><span>    </span><span style="color:#81a1c1;">.</span><span>map(l </span><span style="color:#81a1c1;">=&gt;
+</span><span>      </span><span style="color:#616e88;">// from CreditScore to Exited
+</span><span>      </span><span style="color:#81a1c1;">val row =</span><span> l</span><span style="color:#81a1c1;">.</span><span>split(</span><span style="color:#a3be8c;">&quot;,&quot;</span><span>)</span><span style="color:#81a1c1;">.</span><span>slice(</span><span style="color:#b48ead;">3</span><span style="color:#eceff4;">, </span><span style="color:#b48ead;">14</span><span>)
+</span><span>      </span><span style="color:#8fbcbb;">Row</span><span style="color:#81a1c1;">.</span><span>of(
+</span><span>        row(</span><span style="color:#b48ead;">0</span><span>)</span><span style="color:#81a1c1;">.</span><span>toDouble</span><span style="color:#eceff4;">,
+</span><span>        row(</span><span style="color:#b48ead;">1</span><span>)</span><span style="color:#eceff4;">,
+</span><span>        row(</span><span style="color:#b48ead;">2</span><span>)</span><span style="color:#eceff4;">,
+</span><span>        row(</span><span style="color:#b48ead;">3</span><span>)</span><span style="color:#81a1c1;">.</span><span>toDouble</span><span style="color:#eceff4;">,
+</span><span>        row(</span><span style="color:#b48ead;">4</span><span>)</span><span style="color:#81a1c1;">.</span><span>toDouble</span><span style="color:#eceff4;">,
+</span><span>        row(</span><span style="color:#b48ead;">5</span><span>)</span><span style="color:#81a1c1;">.</span><span>toDouble</span><span style="color:#eceff4;">,
+</span><span>        row(</span><span style="color:#b48ead;">6</span><span>)</span><span style="color:#81a1c1;">.</span><span>toDouble</span><span style="color:#eceff4;">,
+</span><span>        row(</span><span style="color:#b48ead;">7</span><span>)</span><span style="color:#81a1c1;">.</span><span>toDouble</span><span style="color:#eceff4;">,
+</span><span>        row(</span><span style="color:#b48ead;">8</span><span>)</span><span style="color:#81a1c1;">.</span><span>toDouble</span><span style="color:#eceff4;">,
+</span><span>        row(</span><span style="color:#b48ead;">9</span><span>)</span><span style="color:#81a1c1;">.</span><span>toDouble</span><span style="color:#eceff4;">,
+</span><span>        row(</span><span style="color:#b48ead;">10</span><span>)</span><span style="color:#81a1c1;">.</span><span>toDouble
+</span><span>      )
+</span><span>    )
+</span><span>
+</span><span style="color:#81a1c1;">val trainData =</span><span> tEnv</span><span style="color:#81a1c1;">.</span><span>fromDataStream(csvStream)    
+</span></code></pre>
+<p><code>trainData</code> is the input data to our data preprocessing step.</p>
+<h3 id="prepare-ml-features">Prepare ML Features</h3>
+<pre data-lang="scala" style="background-color:#2e3440;color:#d8dee9;" class="language-scala "><code class="language-scala" data-lang="scala"><span style="color:#616e88;">// 1 - index Geography and Gender
+</span><span style="color:#81a1c1;">val indexer = </span><span style="color:#8fbcbb;">StringIndexer</span><span>()
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setStringOrderType(</span><span style="color:#8fbcbb;">StringIndexerParams</span><span style="color:#81a1c1;">.</span><span style="color:#8fbcbb;">ALPHABET_ASC_ORDER</span><span>)
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setInputCols(</span><span style="color:#a3be8c;">&quot;GeographyStr&quot;</span><span style="color:#eceff4;">, </span><span style="color:#a3be8c;">&quot;GenderStr&quot;</span><span>)
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setOutputCols(</span><span style="color:#a3be8c;">&quot;GeographyInd&quot;</span><span style="color:#eceff4;">, </span><span style="color:#a3be8c;">&quot;GenderInd&quot;</span><span>)
+</span></code></pre>
+<p><code>StringIndexer</code> turns string (categorical) columns into integer-indexed columns.
+For each Country and for both Genders we will have an integer value from 0 to N, where N is a number of unique values in the column.
+In case of country column, N is 3 as we have 3 countries in the data set.</p>
+<pre data-lang="scala" style="background-color:#2e3440;color:#d8dee9;" class="language-scala "><code class="language-scala" data-lang="scala"><span style="color:#616e88;">// 2 - OneHot Encode Geography and Gender
+</span><span style="color:#81a1c1;">val geographyEncoder =
+</span><span>  </span><span style="color:#8fbcbb;">OneHotEncoder</span><span>()
+</span><span>    </span><span style="color:#81a1c1;">.</span><span>setInputCols(</span><span style="color:#a3be8c;">&quot;GeographyInd&quot;</span><span style="color:#eceff4;">, </span><span style="color:#a3be8c;">&quot;GenderInd&quot;</span><span>)
+</span><span>    </span><span style="color:#81a1c1;">.</span><span>setOutputCols(</span><span style="color:#a3be8c;">&quot;Geography&quot;</span><span style="color:#eceff4;">, </span><span style="color:#a3be8c;">&quot;Gender&quot;</span><span>)
+</span><span>    </span><span style="color:#81a1c1;">.</span><span>setDropLast(</span><span style="color:#81a1c1;">false</span><span>)
+</span></code></pre>
+<p><code>OneHotEncoder</code> creates an additional column per each unique category in the original column.
+Output columns "Geography" will be divided into 3 columns and "Gender" into 2 columns.
+That means we get 5 columns instead of these 2 original columns in the resulting table.
+Other feature columns so far stay unchanged.</p>
+<h3 id="merge-to-a-vector-column">Merge to a Vector column</h3>
+<p>Before we normalize continues features, we need to merge individual columns into a single column.
+That means the resulting column will look like:</p>
+<pre style="background-color:#2e3440;color:#d8dee9;"><code><span>row0: .. |DenseVector(42,2,0,1,1,1,101348.88)| ..
+</span><span>row1: .. |DenseVector(41,1,83807.86,1,0,1,112542.58)| ..
+</span><span>... etc.
+</span></code></pre>
+<pre data-lang="scala" style="background-color:#2e3440;color:#d8dee9;" class="language-scala "><code class="language-scala" data-lang="scala"><span style="color:#616e88;">// 3 - Merge to Vector
+</span><span style="color:#81a1c1;">val continuesCols = </span><span style="color:#8fbcbb;">List</span><span>(
+</span><span>  </span><span style="color:#a3be8c;">&quot;CreditScore&quot;</span><span style="color:#eceff4;">,
+</span><span>  </span><span style="color:#a3be8c;">&quot;Age&quot;</span><span style="color:#eceff4;">,
+</span><span>  </span><span style="color:#a3be8c;">&quot;Tenure&quot;</span><span style="color:#eceff4;">,
+</span><span>  </span><span style="color:#a3be8c;">&quot;Balance&quot;</span><span style="color:#eceff4;">,
+</span><span>  </span><span style="color:#a3be8c;">&quot;NumOfProducts&quot;</span><span style="color:#eceff4;">,
+</span><span>  </span><span style="color:#a3be8c;">&quot;EstimatedSalary&quot;
+</span><span>)
+</span><span>
+</span><span style="color:#81a1c1;">val assembler = </span><span style="color:#8fbcbb;">VectorAssembler</span><span>()
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setInputCols(continuesCols*)
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setOutputCol(</span><span style="color:#a3be8c;">&quot;continues_features&quot;</span><span>)
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setInputSizes(</span><span style="color:#8fbcbb;">List</span><span style="color:#81a1c1;">.</span><span>fill(continuesCols</span><span style="color:#81a1c1;">.</span><span>length)(</span><span style="color:#b48ead;">1</span><span>)</span><span style="color:#81a1c1;">.</span><span>map(</span><span style="color:#8fbcbb;">Integer</span><span style="color:#81a1c1;">.</span><span>valueOf)*)
+</span></code></pre>
+<p>By merging these columns into a single column, we prepare training data for the final stage of the training pipeline, which is <code>LogisticRegression</code> model.
+Its input format requires to fit a single column with all features per row.</p>
+<h3 id="normalize-numbers-and-merge-columns">Normalize Numbers and Merge Columns</h3>
+<pre data-lang="scala" style="background-color:#2e3440;color:#d8dee9;" class="language-scala "><code class="language-scala" data-lang="scala"><span style="color:#616e88;">// 4 - Normalise numbers
+</span><span style="color:#81a1c1;">val standardScaler = </span><span style="color:#8fbcbb;">StandardScaler</span><span>()
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setWithMean(</span><span style="color:#81a1c1;">true</span><span>)
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setInputCol(</span><span style="color:#a3be8c;">&quot;continues_features&quot;</span><span>)
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setOutputCol(</span><span style="color:#a3be8c;">&quot;continues_features_s&quot;</span><span>)
+</span><span>
+</span><span style="color:#616e88;">// 5 - merge columns to features col
+</span><span style="color:#81a1c1;">val categoricalCols = </span><span style="color:#8fbcbb;">List</span><span>(</span><span style="color:#a3be8c;">&quot;Geography&quot;</span><span style="color:#eceff4;">, </span><span style="color:#a3be8c;">&quot;Gender&quot;</span><span style="color:#eceff4;">, </span><span style="color:#a3be8c;">&quot;HasCrCard&quot;</span><span style="color:#eceff4;">, </span><span style="color:#a3be8c;">&quot;IsActiveMember&quot;</span><span>)
+</span><span style="color:#81a1c1;">val finalCols =</span><span> categoricalCols :+ </span><span style="color:#a3be8c;">&quot;continues_features_s&quot;
+</span><span style="color:#616e88;">// Geography is 3 countries, Gender is 2 + other 8 features
+</span><span style="color:#81a1c1;">val encodedFeatures = </span><span style="color:#8fbcbb;">List</span><span>(</span><span style="color:#b48ead;">3</span><span style="color:#eceff4;">, </span><span style="color:#b48ead;">2</span><span>)
+</span><span style="color:#81a1c1;">val vectorSizes =</span><span> encodedFeatures ++ 
+</span><span>  </span><span style="color:#8fbcbb;">List</span><span style="color:#81a1c1;">.</span><span>fill(categoricalCols</span><span style="color:#81a1c1;">.</span><span>length - encodedFeatures</span><span style="color:#81a1c1;">.</span><span>length)(</span><span style="color:#b48ead;">1</span><span>) :+ continuesCols</span><span style="color:#81a1c1;">.</span><span>length
+</span><span style="color:#81a1c1;">val finalAssembler = </span><span style="color:#8fbcbb;">VectorAssembler</span><span>()
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setInputCols(finalCols*)
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setOutputCol(featuresCol)
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setInputSizes(vectorSizes</span><span style="color:#81a1c1;">.</span><span>map(</span><span style="color:#8fbcbb;">Integer</span><span style="color:#81a1c1;">.</span><span>valueOf)*)
+</span></code></pre>
+<ul>
+<li><code>StandardScaler</code> transforms a column values using column mean and standard deviation values.</li>
+<li><code>VectorAssembler</code> merges all input columns into one single column, which we name as <code>features</code>.</li>
+</ul>
+<p>The resulting table format will have two columns:</p>
+<pre data-lang="csv" style="background-color:#2e3440;color:#d8dee9;" class="language-csv "><code class="language-csv" data-lang="csv"><span style="color:#81a1c1;">features: DensVector | label: Double
+</span></code></pre>
+<h2 id="train-the-model">Train the Model</h2>
+
+
+<img src="https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;processed_images&#x2F;train-the-model.23077a3e960011c4.jpg" class="center-image"/>
+<br/><br/><p align="center">Figure 3. Model riding the train</p>
+<p>Now we combine all stages and train the model:</p>
+<pre data-lang="scala" style="background-color:#2e3440;color:#d8dee9;" class="language-scala "><code class="language-scala" data-lang="scala"><span style="color:#81a1c1;">val lr = </span><span style="color:#8fbcbb;">LogisticRegression</span><span>()
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setLearningRate(</span><span style="color:#b48ead;">0</span><span style="color:#eceff4;">.</span><span style="color:#b48ead;">002</span><span style="color:#81a1c1;">d</span><span>)
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setLabelCol(exitedLabel)
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setReg(</span><span style="color:#b48ead;">0</span><span style="color:#eceff4;">.</span><span style="color:#b48ead;">1</span><span>)
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setElasticNet(</span><span style="color:#b48ead;">0</span><span style="color:#eceff4;">.</span><span style="color:#b48ead;">5</span><span>)
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setMaxIter(</span><span style="color:#b48ead;">100</span><span>)
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setTol(</span><span style="color:#b48ead;">0</span><span style="color:#eceff4;">.</span><span style="color:#b48ead;">01</span><span style="color:#81a1c1;">d</span><span>)
+</span><span>  </span><span style="color:#81a1c1;">.</span><span>setGlobalBatchSize(</span><span style="color:#b48ead;">64</span><span>)
+</span><span>
+</span><span style="color:#81a1c1;">val stages = </span><span>(</span><span style="color:#8fbcbb;">List</span><span>[</span><span style="color:#8fbcbb;">Stage</span><span>[</span><span style="color:#81a1c1;">?</span><span>]](
+</span><span>    indexer</span><span style="color:#eceff4;">,
+</span><span>    geographyEncoder</span><span style="color:#eceff4;">,
+</span><span>    assembler</span><span style="color:#eceff4;">,
+</span><span>    standardScaler</span><span style="color:#eceff4;">,
+</span><span>    finalAssembler</span><span style="color:#eceff4;">,
+</span><span>    lr
+</span><span>  ))</span><span style="color:#81a1c1;">.</span><span>asJava
+</span><span>
+</span><span style="color:#81a1c1;">val pipeline = </span><span style="color:#8fbcbb;">Pipeline</span><span>(stages)
+</span><span>
+</span><span style="color:#81a1c1;">val testSetSize = </span><span style="color:#b48ead;">2000
+</span><span style="color:#81a1c1;">val totalSetSize = </span><span style="color:#b48ead;">10000
+</span><span style="color:#81a1c1;">val trainSetSize =</span><span> totalSetSize - testSetSize
+</span><span style="color:#81a1c1;">val trainSet =</span><span> trainData</span><span style="color:#81a1c1;">.</span><span>limit(trainSetSize)
+</span><span style="color:#81a1c1;">val testSet =</span><span> trainData</span><span style="color:#81a1c1;">.</span><span>limit(trainSetSize</span><span style="color:#eceff4;">,</span><span> testSetSize)
+</span><span>
+</span><span style="color:#81a1c1;">val pipelineModel =</span><span> pipeline</span><span style="color:#81a1c1;">.</span><span>fit(trainSet)
+</span></code></pre>
+<p>Our training pipeline consists of data preparation stages and <code>LogisticRegression</code> evaluator.
+<code>LogisticRegression</code> as the last stage is going to keep and train model weights.</p>
+<p>Method <code>fit</code> executes the training loop. Input data goes through all the stages sequentially.
+The <code>pipelineModel</code> variable is a trained model which we use further to assess its quality by calculating several metrics.</p>
+<h2 id="validate-the-model">Validate the Model</h2>
+<pre data-lang="scala" style="background-color:#2e3440;color:#d8dee9;" class="language-scala "><code class="language-scala" data-lang="scala"><span style="color:#81a1c1;">val validateResult =</span><span> pipelineModel</span><span style="color:#81a1c1;">.</span><span>transform(testSet)(</span><span style="color:#b48ead;">0</span><span>)
+</span><span>
+</span><span style="color:#81a1c1;">val resQuery =
+</span><span>  </span><span style="color:#88c0d0;">s</span><span style="color:#a3be8c;">&quot;&quot;&quot;|select 
+</span><span style="color:#a3be8c;">      |</span><span>$featuresCol</span><span style="color:#a3be8c;">, 
+</span><span style="color:#a3be8c;">      |</span><span>$exitedLabel</span><span style="color:#a3be8c;"> as </span><span>$labelCol</span><span style="color:#a3be8c;">, 
+</span><span style="color:#a3be8c;">      |</span><span>$predictionCol</span><span style="color:#a3be8c;">, 
+</span><span style="color:#a3be8c;">      |rawPrediction        
+</span><span style="color:#a3be8c;">      |from </span><span>$validateResult</span><span style="color:#a3be8c;">&quot;&quot;&quot;</span><span style="color:#81a1c1;">.</span><span>stripMargin
+</span><span>
+</span><span style="color:#81a1c1;">val iter =</span><span> tEnv</span><span style="color:#81a1c1;">.</span><span>sqlQuery(resQuery)</span><span style="color:#81a1c1;">.</span><span>execute</span><span style="color:#81a1c1;">.</span><span>collect
+</span><span style="color:#81a1c1;">val firstRow =</span><span> iter</span><span style="color:#81a1c1;">.</span><span>next
+</span><span style="color:#81a1c1;">val colNames =</span><span> firstRow</span><span style="color:#81a1c1;">.</span><span>getFieldNames(</span><span style="color:#81a1c1;">true</span><span>)</span><span style="color:#81a1c1;">.</span><span>asScala</span><span style="color:#81a1c1;">.</span><span>toList</span><span style="color:#81a1c1;">.</span><span>mkString(</span><span style="color:#a3be8c;">&quot;, &quot;</span><span>)
+</span><span>
+</span><span style="color:#81a1c1;">val correctCnt = </span><span>(</span><span style="color:#8fbcbb;">List</span><span>(firstRow)</span><span style="color:#81a1c1;">.</span><span>toIterable ++ iter</span><span style="color:#81a1c1;">.</span><span>asScala)</span><span style="color:#81a1c1;">.</span><span>foldLeft(</span><span style="color:#b48ead;">0</span><span>) { 
+</span><span>  (acc, row) </span><span style="color:#81a1c1;">=&gt;
+</span><span>    println(row)
+</span><span>    </span><span style="color:#81a1c1;">val label =</span><span> row</span><span style="color:#81a1c1;">.</span><span>getFieldAs[</span><span style="color:#81a1c1;">Double</span><span>](labelCol)
+</span><span>    </span><span style="color:#81a1c1;">val prediction =</span><span> row</span><span style="color:#81a1c1;">.</span><span>getFieldAs[</span><span style="color:#81a1c1;">Double</span><span>](predictionCol)
+</span><span>    </span><span style="color:#81a1c1;">if</span><span> label </span><span style="color:#81a1c1;">==</span><span> prediction then acc + </span><span style="color:#b48ead;">1 </span><span style="color:#81a1c1;">else</span><span> acc
+</span><span>}
+</span><span>println(colNames)
+</span><span>println(
+</span><span>  </span><span style="color:#88c0d0;">s</span><span style="color:#a3be8c;">&quot;</span><span>correct labels count: $correctCnt, accuracy: ${correctCnt / testSetSize</span><span style="color:#81a1c1;">.</span><span>toDouble}</span><span style="color:#a3be8c;">&quot;
+</span><span>)
+</span></code></pre>
+<p>In the result, above calculation will print all the validate set rows with their predictions and final accuracy metric value:</p>
+<pre data-lang="bash" style="background-color:#2e3440;color:#d8dee9;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#88c0d0;">.... </span><span style="color:#81a1c1;">&lt;</span><span> a lot of rows here</span><span style="color:#81a1c1;">&gt;
+</span><span style="color:#88c0d0;">+I[[1.0,</span><span> 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.6078536710583327, -0.2776327360064674, 0.6985644677637127, -1.2297164068458775, -0.9064018047377373, -1.0106520912894439], 1.0, 0.0, </span><span style="color:#81a1c1;">[</span><span>0.5157926901008845, 0.48420730989911553</span><span style="color:#81a1c1;">]</span><span>]
+</span><span style="color:#88c0d0;">features,</span><span> label, prediction, rawPrediction
+</span><span style="color:#88c0d0;">correct</span><span> labels count: 1619, accuracy: 0.8095
+</span></code></pre>
+<p>Among 2000 validate set rows we got 1619 correctly labeled, which is 81% correctness of the trained model.</p>
+<p>One more useful evaluation of the model performance is to use Flink ML
+<a href="https://nightlies.apache.org/flink/flink-ml-docs-release-2.3/docs/operators/evaluation/binaryclassificationevaluator/">BinaryClassificationEvaluator</a>:</p>
+<pre data-lang="scala" style="background-color:#2e3440;color:#d8dee9;" class="language-scala "><code class="language-scala" data-lang="scala"><span style="color:#81a1c1;">val evaluator = </span><span style="color:#8fbcbb;">BinaryClassificationEvaluator</span><span>()
+</span><span>    </span><span style="color:#81a1c1;">.</span><span>setLabelCol(exitedLabel)
+</span><span>    </span><span style="color:#81a1c1;">.</span><span>setMetricsNames(
+</span><span>      </span><span style="color:#8fbcbb;">ClassifierMetric</span><span style="color:#81a1c1;">.</span><span style="color:#8fbcbb;">AREA_UNDER_PR</span><span style="color:#eceff4;">,
+</span><span>      </span><span style="color:#8fbcbb;">ClassifierMetric</span><span style="color:#81a1c1;">.</span><span style="color:#8fbcbb;">KS</span><span style="color:#eceff4;">,
+</span><span>      </span><span style="color:#8fbcbb;">ClassifierMetric</span><span style="color:#81a1c1;">.</span><span style="color:#8fbcbb;">AREA_UNDER_ROC</span><span style="color:#eceff4;">,
+</span><span>      </span><span style="color:#8fbcbb;">ClassifierMetric</span><span style="color:#81a1c1;">.</span><span style="color:#8fbcbb;">AREA_UNDER_LORENZ
+</span><span>    )
+</span><span>
+</span><span style="color:#81a1c1;">val outputTable =</span><span> evaluator</span><span style="color:#81a1c1;">.</span><span>transform(validateResult)(</span><span style="color:#b48ead;">0</span><span>)
+</span><span style="color:#81a1c1;">val evaluationResult =</span><span> outputTable</span><span style="color:#81a1c1;">.</span><span>execute</span><span style="color:#81a1c1;">.</span><span>collect</span><span style="color:#81a1c1;">.</span><span>next
+</span><span>println(
+</span><span>  </span><span style="color:#88c0d0;">s</span><span style="color:#a3be8c;">&quot;</span><span>Area under the precision-recall curve: ${
+</span><span>    evaluationResult</span><span style="color:#81a1c1;">.</span><span>getField(</span><span style="color:#8fbcbb;">ClassifierMetric</span><span style="color:#81a1c1;">.</span><span style="color:#8fbcbb;">AREA_UNDER_PR</span><span>)}</span><span style="color:#a3be8c;">&quot;
+</span><span>)
+</span><span>println(
+</span><span>  </span><span style="color:#88c0d0;">s</span><span style="color:#a3be8c;">&quot;</span><span>Area under the receiver operating characteristic curve: ${
+</span><span>    evaluationResult</span><span style="color:#81a1c1;">.</span><span>getField(</span><span style="color:#8fbcbb;">ClassifierMetric</span><span style="color:#81a1c1;">.</span><span style="color:#8fbcbb;">AREA_UNDER_ROC</span><span>)}</span><span style="color:#a3be8c;">&quot;
+</span><span>)
+</span><span>println(
+</span><span>  </span><span style="color:#88c0d0;">s</span><span style="color:#a3be8c;">&quot;</span><span>Kolmogorov-Smirnov value: ${evaluationResult</span><span style="color:#81a1c1;">.</span><span>getField(</span><span style="color:#8fbcbb;">ClassifierMetric</span><span style="color:#81a1c1;">.</span><span style="color:#8fbcbb;">KS</span><span>)}</span><span style="color:#a3be8c;">&quot;
+</span><span>)
+</span><span>println(
+</span><span>  </span><span style="color:#88c0d0;">s</span><span style="color:#a3be8c;">&quot;</span><span>Area under Lorenz curve: ${
+</span><span>    evaluationResult</span><span style="color:#81a1c1;">.</span><span>getField(</span><span style="color:#8fbcbb;">ClassifierMetric</span><span style="color:#81a1c1;">.</span><span style="color:#8fbcbb;">AREA_UNDER_LORENZ</span><span>)}</span><span style="color:#a3be8c;">&quot;
+</span><span>)
+</span></code></pre>
+<p>We get the following values:</p>
+<pre data-lang="bash" style="background-color:#2e3440;color:#d8dee9;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#88c0d0;">Area</span><span> under the precision-recall curve: 0.3690456181301246
+</span><span style="color:#88c0d0;">Area</span><span> under the receiver operating characteristic curve: 0.6990527666047854
+</span><span style="color:#88c0d0;">Kolmogorov-Smirnov</span><span> value: 0.2932136963696369
+</span><span style="color:#88c0d0;">Area</span><span> under Lorenz curve: 0.6608346354166658
+</span></code></pre>
+<p>We are not going to try to improve current metrics and overall model performance. That would be a subject for another blog post.</p>
+<h2 id="save-and-load-model">Save and Load Model</h2>
+<p>If we need to save learned model weights and then later load them again, Flink ML has special methods for that:</p>
+<p><strong>Save Model data</strong>:</p>
+<pre data-lang="scala" style="background-color:#2e3440;color:#d8dee9;" class="language-scala "><code class="language-scala" data-lang="scala"><span>pipelineModel</span><span style="color:#81a1c1;">.</span><span>save(</span><span style="color:#a3be8c;">&quot;target/customer-churn-model/pipeline&quot;</span><span>)
+</span><span>env</span><span style="color:#81a1c1;">.</span><span>execute(</span><span style="color:#a3be8c;">&quot;Save PipelineModel&quot;</span><span>)
+</span></code></pre>
+<p>Do not forget to call <code>execute</code> method to trigger model saving at the specified path.</p>
+<p>In the result we will get the following metadata and data on disk:</p>
+<pre data-lang="bash" style="background-color:#2e3440;color:#d8dee9;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#88c0d0;">target/customer-churn-model/pipeline/
+</span><span style="color:#88c0d0;">├──</span><span> metadata
+</span><span style="color:#88c0d0;">└──</span><span> stages
+</span><span>    </span><span style="color:#88c0d0;">├──</span><span> 0
+</span><span>    </span><span style="color:#88c0d0;">│</span><span>   ├── data
+</span><span>    </span><span style="color:#88c0d0;">│</span><span>   │   └── part-a64dc5f8-aa9f-4926-b3c4-741046d6191b-0
+</span><span>    </span><span style="color:#88c0d0;">│</span><span>   └── metadata
+</span><span>    </span><span style="color:#88c0d0;">├──</span><span> 1
+</span><span>    </span><span style="color:#88c0d0;">│</span><span>   ├── data
+</span><span>    </span><span style="color:#88c0d0;">│</span><span>   │   ├── part-820018d4-6bf6-4494-8de1-88e26b94054c-0
+</span><span>    </span><span style="color:#88c0d0;">│</span><span>   │   └── part-8471e23f-af15-438e-9c10-a32e34ac9a64-0
+</span><span>    </span><span style="color:#88c0d0;">│</span><span>   └── metadata
+</span><span>    </span><span style="color:#88c0d0;">├──</span><span> 2
+</span><span>    </span><span style="color:#88c0d0;">│</span><span>   └── metadata
+</span><span>    </span><span style="color:#88c0d0;">├──</span><span> 3
+</span><span>    </span><span style="color:#88c0d0;">│</span><span>   ├── data
+</span><span>    </span><span style="color:#88c0d0;">│</span><span>   │   └── part-4008d3e0-259e-41a7-923f-12522d6a8950-0
+</span><span>    </span><span style="color:#88c0d0;">│</span><span>   └── metadata
+</span><span>    </span><span style="color:#88c0d0;">├──</span><span> 4
+</span><span>    </span><span style="color:#88c0d0;">│</span><span>   └── metadata
+</span><span>    </span><span style="color:#88c0d0;">└──</span><span> 5
+</span><span>        </span><span style="color:#88c0d0;">├──</span><span> data
+</span><span>        </span><span style="color:#88c0d0;">│</span><span>   └── part-aac4d931-8dea-4ee3-8610-884dc158e31d-0
+</span><span>        </span><span style="color:#88c0d0;">└──</span><span> metadata
+</span></code></pre>
+<p><strong>Load Model data</strong>:</p>
+<pre data-lang="scala" style="background-color:#2e3440;color:#d8dee9;" class="language-scala "><code class="language-scala" data-lang="scala"><span style="color:#81a1c1;">val model = </span><span style="color:#8fbcbb;">PipelineModel</span><span style="color:#81a1c1;">.</span><span>load(tEnv</span><span style="color:#eceff4;">, </span><span style="color:#a3be8c;">&quot;target/customer-churn-model/pipeline&quot;</span><span>)
+</span><span style="color:#81a1c1;">val validateResult =</span><span> model</span><span style="color:#81a1c1;">.</span><span>transform(validateSet)(</span><span style="color:#b48ead;">0</span><span>)
+</span><span style="color:#81a1c1;">...
+</span></code></pre>
+<h2 id="flink-ml-summary">Flink ML Summary</h2>
+<p>In result we were able to create a Flink job which can learn and train ML model for Customer Churn Analysis using <code>LogisticResgression</code> algorithm.
+As part of the learning process, we were able to  prepare data in the proper format using Flink ML encoders and scalers utilities.
+In case we want to use the trained model further, we can store and load its state in the same or in a completely new Flink job.
+This allows us to train ML models in Flink on a specific environment and use them later in production.</p>
+<p>Flink ML also allows to extend it with own ML algorithm using <a href="https://nightlies.apache.org/flink/flink-ml-docs-master/docs/development/overview/">FlinkML API</a>.</p>
+
+          </div>
+          <div class="container has-text-centered">
+            
+  <p class="is-size-5">
+    Share:
+    <a class="link" data-sharer="facebook" data-url='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;flink-ml&#x2F;' href="javascript:void(0);" title="Share on facebook">
+      <span class="icon">
+        <i class="fab fa-facebook-square"></i>
+      </span>
+    </a>
+    <a class="link" data-sharer="twitter" data-title='Machine Learning with Flink' data-url='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;flink-ml&#x2F;' href="javascript:void(0);" title="Share on twitter">
+      <span class="icon">
+        <i class="fab fa-twitter"></i>
+      </span>
+    </a>
+    <a class="link" data-sharer="linkedin" data-url='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;flink-ml&#x2F;' href="javascript:void(0);" title="Share on linkedin">
+      <span class="icon">
+        <i class="fab fa-linkedin"></i>
+      </span>
+    </a>
+    <a class="link" data-sharer="reddit" data-url='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;flink-ml&#x2F;' href="javascript:void(0);" title="Share on reddit">
+      <span class="icon">
+        <i class="fab fa-reddit"></i>
+      </span>
+    </a>
+    <a class="link" data-sharer="hackernews" data-title="Machine Learning with Flink" data-url='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;flink-ml&#x2F;' href="javascript:void(0);" title="Share on hackernews">
+      <span class="icon">
+        <i class="fab fa-hacker-news"></i>
+      </span>
+    </a>
+    <a class="link" data-sharer="whatsapp" data-title="Machine Learning with Flink" data-url='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;flink-ml&#x2F;' href="javascript:void(0);" title="Share on whatsapp">
+      <span class="icon">
+        <i class="fab fa-whatsapp-square"></i>
+      </span>
+    </a>
+  </p>
+
+          </div>
+        </article>
+      </div>
+      
+      <div class="column is-2 is-hidden-mobile">
+        <aside class="menu" style="position: sticky; top: 48px">
+          <p class="heading has-text-weight-bold">Contents</p>
+          <ul class="menu-list">
+            
+            <li>
+              <a id="link-supervised-machine-learning" class="toc is-size-7 is-active" href="https://novakov-alexey.github.io/flink-ml/#supervised-machine-learning">
+                Supervised Machine Learning
+              </a>
+              
+            </li>
+            
+            <li>
+              <a id="link-data-streaming-and-ml" class="toc is-size-7 " href="https://novakov-alexey.github.io/flink-ml/#data-streaming-and-ml">
+                Data Streaming and ML
+              </a>
+              
+            </li>
+            
+            <li>
+              <a id="link-ml-libraries-for-flink" class="toc is-size-7 " href="https://novakov-alexey.github.io/flink-ml/#ml-libraries-for-flink">
+                ML Libraries for Flink
+              </a>
+              
+              <ul>
+                
+                <li>
+                  <a id="link-external-libraries" class="toc is-size-7" href="https://novakov-alexey.github.io/flink-ml/#external-libraries">
+                    External Libraries
+                  </a>
+                </li>
+                
+              </ul>
+              
+            </li>
+            
+            <li>
+              <a id="link-ways-to-do-ml-in-flink" class="toc is-size-7 " href="https://novakov-alexey.github.io/flink-ml/#ways-to-do-ml-in-flink">
+                Ways to do ML in Flink
+              </a>
+              
+            </li>
+            
+            <li>
+              <a id="link-generic-ml-workflow-with-flink" class="toc is-size-7 " href="https://novakov-alexey.github.io/flink-ml/#generic-ml-workflow-with-flink">
+                Generic ML Workflow with Flink
+              </a>
+              
+              <ul>
+                
+                <li>
+                  <a id="link-training" class="toc is-size-7" href="https://novakov-alexey.github.io/flink-ml/#training">
+                    Training
+                  </a>
+                </li>
+                
+                <li>
+                  <a id="link-inference" class="toc is-size-7" href="https://novakov-alexey.github.io/flink-ml/#inference">
+                    Inference
+                  </a>
+                </li>
+                
+              </ul>
+              
+            </li>
+            
+            <li>
+              <a id="link-flink-ml-module" class="toc is-size-7 " href="https://novakov-alexey.github.io/flink-ml/#flink-ml-module">
+                Flink ML Module
+              </a>
+              
+              <ul>
+                
+                <li>
+                  <a id="link-algorithms-supported-by-the-flinkml" class="toc is-size-7" href="https://novakov-alexey.github.io/flink-ml/#algorithms-supported-by-the-flinkml">
+                    Algorithms supported by the FlinkML
+                  </a>
+                </li>
+                
+                <li>
+                  <a id="link-example-logistic-regression" class="toc is-size-7" href="https://novakov-alexey.github.io/flink-ml/#example-logistic-regression">
+                    Example: Logistic Regression
+                  </a>
+                </li>
+                
+                <li>
+                  <a id="link-data-preparation" class="toc is-size-7" href="https://novakov-alexey.github.io/flink-ml/#data-preparation">
+                    Data Preparation
+                  </a>
+                </li>
+                
+                <li>
+                  <a id="link-train-the-model" class="toc is-size-7" href="https://novakov-alexey.github.io/flink-ml/#train-the-model">
+                    Train the Model
+                  </a>
+                </li>
+                
+                <li>
+                  <a id="link-validate-the-model" class="toc is-size-7" href="https://novakov-alexey.github.io/flink-ml/#validate-the-model">
+                    Validate the Model
+                  </a>
+                </li>
+                
+                <li>
+                  <a id="link-save-and-load-model" class="toc is-size-7" href="https://novakov-alexey.github.io/flink-ml/#save-and-load-model">
+                    Save and Load Model
+                  </a>
+                </li>
+                
+                <li>
+                  <a id="link-flink-ml-summary" class="toc is-size-7" href="https://novakov-alexey.github.io/flink-ml/#flink-ml-summary">
+                    Flink ML Summary
+                  </a>
+                </li>
+                
+              </ul>
+              
+            </li>
+            
+          </ul>
+        </aside>
+      </div>
+      
+    </div>
+  </div>
+</section>
+  
+
+
+  
+  <section class="modal" id="search-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="field">
+        <p class="control has-icons-right">
+          <input class="input" id="search" placeholder="Search this website." type="search" />
+          <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+      <div class="search-results">
+        <div class="search-results__items"></div>
+      </div>
+    </div>
+    <button aria-label="close" class="modal-close is-large"></button>
+  </section>
+  
+
+
+  
+
+
+
+  
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <div id="disqus_thread"></div>
+      </div>
+    </div>
+  </div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {      
+      this.page.url = 'https://novakov-alexey.github.io/flink-ml/';  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = 'flink-ml'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://novakov-alexey-blog.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+  
+  <footer class="py-4 has-background-light">
+    <p class="has-text-centered">
+      Built with
+      <span class="icon is-small">
+        <i class="fas fa-code fa-xs"></i>
+      </span>
+      code and
+      <span class="icon is-small">
+        <i class="fas fa-heart fa-xs"></i>
+      </span>
+      love <br /> Powered By
+      <span class="icon is-small">
+        <i class="fas fa-power-off fa-xs"></i>
+      </span>
+      Zola
+    </p>
+  </footer>
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+  <script src='https://novakov-alexey.github.io/search_index.en.js'></script>
+  <script src='https://novakov-alexey.github.io/js/site.js'></script>
+
+  
+
+<script type="text/javascript">
+  const menuBarHeight = $("nav.navbar").height();
+  const tocItems = $('.toc');
+  const navSections = new Array($('.toc').length);
+
+  tocItems.each(function (i) {
+    let id = $(this).attr("id").substring(5);
+    navSections[i] = document.getElementById(id);
+  })
+
+  function isVisible(tocIndex) {
+    const current = navSections[tocIndex];
+    const next = tocIndex < tocItems.length - 1 ? navSections[tocIndex+1] : $("section.section").get(1);
+    
+    const c = current.getBoundingClientRect();
+    const n = next.getBoundingClientRect();
+    const h = (window.innerHeight || document.documentElement.clientHeight);
+
+    return (c.top <= h) && (c.top + (n.top - c.top) - menuBarHeight >= 0);
+  }
+
+  function activateIfVisible() {
+    for (b = true, i = 0; i < tocItems.length; i++) {
+      if (b && isVisible(i)) {
+        tocItems[i].classList.add('is-active');
+        b = false;
+      } else
+        tocItems[i].classList.remove('is-active');
+    }
+  }
+
+  var isTicking = null;
+  window.addEventListener('scroll', () => {
+    if (!isTicking) {
+      window.requestAnimationFrame(() => {
+        activateIfVisible();
+        isTicking = false;
+      });
+      isTicking = true;
+    }
+  }, false);
+</script>
+
+
+
+
+</body>
+
+</html>

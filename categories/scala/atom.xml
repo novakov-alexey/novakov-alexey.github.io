@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Alexey Novakov Notes - scala</title>
+    <subtitle>Alexey Novakov: Software Engineering Notes</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://novakov-alexey.github.io/categories/scala/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-01-10T00:00:00+00:00</updated>
+    <id>https://novakov-alexey.github.io/categories/scala/atom.xml</id>
+    <entry xml:lang="en">
+        <title>ONNX Model format in Flink </title>
+        <published>2025-01-10T00:00:00+00:00</published>
+        <updated>2025-01-10T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/flink-model-formats/"/>
+        <id>https://novakov-alexey.github.io/flink-model-formats/</id>
+        
+        <summary type="html">&lt;p&gt;The most popular eco-system to train ML model these days is Python and C&#x2F;C++ based libraries. An example of model training can be a Logistic Regression algorithms, from ScikitLearn package or
+more advanced neural networks algorithms offered by Tensorflow, Pytorch and others. There are lots of tools and libraries in Python world to facilitate training and model serving.&lt;&#x2F;p&gt;
+&lt;p&gt;In order to bring trained models in Keras or SciKitLean into a Flink application, we can use cross-platform file formats such as ONNX and PMML (in the past). These formats also come with language runtimes.
+In Flink case, we select JVM SDK to run inference logic inside the Flink job.&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s look at the example on how to train Logistic Regression in Python using Keras and then use trained model in ONNX format inside Flink.&lt;&#x2F;p&gt;
+
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;onnx-logo.89bbc982f155e9cd.png&quot; class=&quot;center-image&quot;&#x2F;&gt;
+&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Machine Learning with Flink</title>
+        <published>2024-11-23T00:00:00+00:00</published>
+        <updated>2024-11-23T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/flink-ml/"/>
+        <id>https://novakov-alexey.github.io/flink-ml/</id>
+        
+        <summary type="html">&lt;p&gt;If you want to add Machine Learning capabilities into your Flink job then this article is for you.
+As Flink runs on Java Virtual Machine, we are constrained by the tools which JVM supports. However, there are still plenty of options to choose in order to perform model training and inference as part of a Flink job.&lt;&#x2F;p&gt;
+
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;flink-ml-logo.faf91aaec1efab16.png&quot; class=&quot;center-image&quot;&#x2F;&gt;
+&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Using Scala 3 with Apache Flink</title>
+        <published>2023-01-16T00:00:00+00:00</published>
+        <updated>2023-01-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/flink-scala3/"/>
+        <id>https://novakov-alexey.github.io/flink-scala3/</id>
+        
+        <summary type="html">&lt;style&gt;
+  .container {    
+    justify-content: center;
+  }
+&lt;&#x2F;style&gt; 
+&lt;div class=&quot;container&quot;&gt;
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;flink_squirrel_500.03d52ccb21792626.png&quot;&#x2F;&gt;
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;scala-logo.613bed630ac81ac4.png&quot;&#x2F;&gt;
+&lt;&#x2F;div&gt;
+&lt;br&#x2F;&gt;
+&lt;p&gt;If you have come here,  then you probably know that current version of Apache Flink 1.16 Scala API still depends
+on Scala 2.12. However, the good news is that previous Flink release 1.15 introduced &lt;a href=&quot;https:&#x2F;&#x2F;flink.apache.org&#x2F;2022&#x2F;02&#x2F;22&#x2F;scala-free.html&quot;&gt;an important change&lt;&#x2F;a&gt;
+for Scala users, which allows us to use own Scala version via Flink Java API. That means users can now use Scala 2.13 or 3 to write Flink jobs.
+Earlier, Flink had Scala 2.12 as a mandatory library on application classpath, so one could not use newer version due to version conflicts.&lt;&#x2F;p&gt;
+
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;flink-github-scala-version.7aa2c5d13967543d.png&quot; class=&quot;center-image&quot;&#x2F;&gt;
+&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;
+&lt;p&gt;Official Flink Scala API will be still available in future, but will probably be deprecated at some point. It is unclear at this point.
+Flink community made a decision to not engage with newer Scala version and make Flink to be Scala-free, in terms of user&#x27;s Scala version choice.
+Whether it is good or bad for Scala users in general we will going to see in near future. Definitely this choice is good, as it unlocks
+Flink for newer Scala versions.&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Spark API Languages</title>
+        <published>2022-10-07T00:00:00+00:00</published>
+        <updated>2022-10-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/spark-api/"/>
+        <id>https://novakov-alexey.github.io/spark-api/</id>
+        
+        <summary type="html">
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;spark_logo.36e55ffdad136564.jpg&quot; class=&quot;center-image&quot;&#x2F;&gt;
+&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;&lt;h1 id=&quot;context&quot;&gt;Context&lt;&#x2F;h1&gt;
+&lt;p&gt;As part of my role of Data Architect at work, I often deal with AWS data services to run Apache Spark jobs such as EMR and Glue ETL. At the very beginning team needed to choose Spark supported programming language and start writing our main jobs for data processing.&lt;&#x2F;p&gt;
+&lt;p&gt;Before we further dive into the languages choice, let&#x27;s quickly remind what is Spark for EMR. Glue ETL is going to be skipped from the blog-post.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;spark&quot;&gt;Apache Spark&lt;&#x2F;a&gt; is one of the main component of &lt;a href=&quot;https:&#x2F;&#x2F;aws.amazon.com&#x2F;emr&#x2F;&quot;&gt;AWS EMR&lt;&#x2F;a&gt;, which makes EMR still meaningful service to be used by Big Data teams. AWS EMR team is building its own Spark distribution to integrate it with other EMR applications seamlessly. Even though Amazon builds own Spark, they keep the same Spark version, which is equal to open source version of Spark. All features of Apache Spark are available in EMR Spark. EMR allows to run a Spark application in EMR cluster via step type called “Spark Application”.&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>CDC with Delta Lake Streaming</title>
+        <published>2022-08-07T00:00:00+00:00</published>
+        <updated>2022-08-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/delta-lake/"/>
+        <id>https://novakov-alexey.github.io/delta-lake/</id>
+        
+        <summary type="html">
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;delta-lake-logo.50ccedba307a78e1.png&quot; class=&quot;center-image&quot;&#x2F;&gt;
+&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;
+&lt;p&gt;Change Data Capture (CDC) is a popular technique for replication of data from OLTP to OLAP data store.
+Usually CDC tools integrate with transactional logs of relational databases and thus are mainly dedicated to replicate all possible data changes from relational databases. NoSQL databases are usually coming with built-in CDC for any possible data change (insert, update, delete), for example AWS DynamoDB Streams.&lt;&#x2F;p&gt;
+&lt;p&gt;In this blog-post, we will look at &lt;a href=&quot;https:&#x2F;&#x2F;docs.delta.io&#x2F;latest&#x2F;index.html&quot;&gt;Delta Lake&lt;&#x2F;a&gt; table format, which supports &lt;a href=&quot;https:&#x2F;&#x2F;docs.delta.io&#x2F;latest&#x2F;delta-update.html#upsert-into-a-table-using-merge&quot;&gt;&quot;merge&quot;&lt;&#x2F;a&gt; operation. This operation is useful when we need to update replicated data in Data Lake.&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Decision Tree from scratch</title>
+        <published>2021-12-21T00:00:00+00:00</published>
+        <updated>2021-12-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/decision-tree/"/>
+        <id>https://novakov-alexey.github.io/decision-tree/</id>
+        
+        <summary type="html">&lt;p&gt;&lt;strong&gt;Cropped view of one the region in the middle of the tree we will build further&lt;&#x2F;strong&gt;
+
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;tree-shape.03b9d95e5e1c2743.png&quot; class=&quot;center-image&quot;&#x2F;&gt;
+&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Decision Tree classifier is one the simplest algorithm to implement from scratch. One of the benefit of this algorithm is it can be trained without
+spending too much efforst on data preparation and it is fast comparing to more complex algorithms like Neural Networks.
+In this blog post we are going to implement CART algorithm, which stands for Classification and Regression trees. There are many other algorithms in decision trees space,
+but we will not describe them in this blog post.&lt;&#x2F;p&gt;
+&lt;p&gt;Data science practitioners often use decision tree algorithms to compare their performance with more advanced algorithms.
+Although decision tree is fast to train, its accuracy metric usually lower than accuracy on the other algorithms like deep feed forward networks
+or something more advanced using the same dataset. However, you do not always need high accuracy value,
+so using CART and other decision tree ensemble algorithms may be enough for solving particular problem.&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Kubernetes Operator in Scala for Kerberos Keytab Management</title>
+        <published>2021-10-16T00:00:00+00:00</published>
+        <updated>2021-10-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/k8s-operator/"/>
+        <id>https://novakov-alexey.github.io/k8s-operator/</id>
+        
+        <summary type="html">&lt;style&gt;
+  .container {    
+    justify-content: center;
+  }
+&lt;&#x2F;style&gt; 
+&lt;div class=&quot;container&quot;&gt;
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;cats-effect-logo.99644159d6f55778.png&quot;&#x2F;&gt;
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;k8s-logo.680eb13a8b0c6144.png&quot;&#x2F;&gt;
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;scala-logo.867b969d22a1cc16.png&quot;&#x2F;&gt;
+&lt;&#x2F;div&gt;&lt;br&#x2F;&gt;
+&lt;p&gt;Kubernetes has built-in controllers to handle its native resource such as&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pod&lt;&#x2F;li&gt;
+&lt;li&gt;Service&lt;&#x2F;li&gt;
+&lt;li&gt;Deployment&lt;&#x2F;li&gt;
+&lt;li&gt;etc.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;What if you want a completely new resource type, which would describe some new abstraction in clear and concise way? Such new resource would describe everything in
+one single type which would require 5-10 separate native Kubernetes resources.&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Face Identification with VGGFace and OpenCV</title>
+        <published>2021-05-22T00:00:00+00:00</published>
+        <updated>2021-05-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/face-identification/"/>
+        <id>https://novakov-alexey.github.io/face-identification/</id>
+        
+        <summary type="html">&lt;p&gt;Face detection and recognition is one the area where Deep Learning is incredibly useful. There are many studies and datasets related to
+human faces and their detection&#x2F;recognition. In this article we will implement Machine Learning pipeline for face detection and recognition using few libraries and CNN model.&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Convolutional Neural Network in Scala</title>
+        <published>2021-04-02T00:00:00+00:00</published>
+        <updated>2021-04-02T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/cnn-in-scala/"/>
+        <id>https://novakov-alexey.github.io/cnn-in-scala/</id>
+        
+        <summary type="html">&lt;p&gt;Last time we used &lt;a href=&quot;..&#x2F;ann-mnist&#x2F;&quot;&gt;ANN&lt;&#x2F;a&gt; to train a Deep Learning model for image recognition using MNIST dataset.
+This time we are going to look at more advanced network called Convolutional Neural Network or CNN in short.&lt;&#x2F;p&gt;
+&lt;p&gt;CNN is designed to tackle image recognition problem. However, it can be used not only for image recognition.
+As we have seen last time, ANN using just hidden layers can learn quite well on MNIST.
+However, for real life use cases we need higher accuracy. The main idea of CNN is to learn how to recognise object in their different shapes and positions
+using specific features of the image data. The goal of CNN is better model regularisation by using convolution and pooling operations.&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>MNIST image recognition using Deep Feed Forward Network</title>
+        <published>2021-03-12T00:00:00+00:00</published>
+        <updated>2021-03-12T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/ann-mnist/"/>
+        <id>https://novakov-alexey.github.io/ann-mnist/</id>
+        
+        <summary type="html">&lt;p&gt;Deep Feed Forward Neural Network is one of the type of Artificial Neural Networks, which is also able to classify computer images.
+In order to feed pixel data into the neural net in RBG&#x2F;Greyscale&#x2F;other format one can map every pixel to network inputs.
+That means every pixel becomes a feature. It may sound scary and highly inefficient to feed, let&#x27;s say, 28 hieght on 28 width image size, which is 784 features to learn from.
+However, neural networks can learn from the pixel data successfully and classify unseen data. We are going to prove this.&lt;&#x2F;p&gt;
+&lt;p&gt;Please note, there are additional type of networks which are more efficient in image classification such as Convolutional Neural Network, but we are going to talk about that next time.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;dataset&quot;&gt;Dataset&lt;&#x2F;h1&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;upload.wikimedia.org&#x2F;wikipedia&#x2F;commons&#x2F;2&#x2F;27&#x2F;MnistExamples.png&quot; alt=&quot;Wikipedia MnistExamples&quot; &#x2F;&gt;&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Linear Regression with Adam Optimizer</title>
+        <published>2021-02-24T00:00:00+00:00</published>
+        <updated>2021-02-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/adam-optimizer/"/>
+        <id>https://novakov-alexey.github.io/adam-optimizer/</id>
+        
+        <summary type="html">&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;1412.6980.pdf&quot;&gt;Adam&lt;&#x2F;a&gt; is one more optimization algorithm used in neural networks. It is based on adaptive estimates of lower-order moments. It has more hyper-parameters than classic Gradient Descent to tune externally&lt;&#x2F;p&gt;
+&lt;p&gt;Good default settings for the tested machine learning problems are:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;α =  0.001, &#x2F;&#x2F; learning rate. We have already seen this one in classic Gradient Descent.&lt;&#x2F;li&gt;
+&lt;li&gt;β&lt;sub&gt;1&lt;&#x2F;sub&gt; = 0.9,&lt;&#x2F;li&gt;
+&lt;li&gt;β&lt;sub&gt;2&lt;&#x2F;sub&gt; = 0.999&lt;&#x2F;li&gt;
+&lt;li&gt;eps = 10−8.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Linear Regression with Gradient Descent</title>
+        <published>2021-02-20T00:00:00+00:00</published>
+        <updated>2021-02-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/linear-regression/"/>
+        <id>https://novakov-alexey.github.io/linear-regression/</id>
+        
+        <summary type="html">&lt;p&gt;In this article we are going to use &lt;a href=&quot;&#x2F;ann-in-scala-2&quot;&gt;Scala mini-library&lt;&#x2F;a&gt; for Deep Learning
+that we developed earlier in order to study basic linear regression task.
+We will learn model weights using perceptron model, which will be our single unit network layer that emits target value.
+This model will predict a target value &lt;code&gt;yHat&lt;&#x2F;code&gt; based on two trained parameters: weight and bias. Both are scalar numbers.
+Weights optimization is going to be based on implemented Gradient descent algorithm:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;ann-in-scala-1&#x2F;#gradient-descent-optimization&quot;&gt;Gradient Descent Optimization&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;ann-in-scala-2&#x2F;#training-loop&quot;&gt;Training Loop&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Model equation:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;scala&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-scala &quot;&gt;&lt;code class=&quot;language-scala&quot; data-lang=&quot;scala&quot;&gt;&lt;span&gt;y &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; bias + weight * x
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>TensorFlow Scala - Linear Regression via ANN</title>
+        <published>2021-02-13T00:00:00+00:00</published>
+        <updated>2021-02-13T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/tensorflow-scala/"/>
+        <id>https://novakov-alexey.github.io/tensorflow-scala/</id>
+        
+        <summary type="html">&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;eaplatanios&#x2F;tensorflow_scala&#x2F;master&#x2F;docs&#x2F;images&#x2F;logo.svg?sanitize=true&quot; alt=&quot;TensorFlow Scala logo&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;eaplatanios&#x2F;tensorflow_scala&quot;&gt;TensorFlow Scala&lt;&#x2F;a&gt; is a strongly-typed Scala API for TensorFlow core C++ library developed by &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;eaplatanios&quot;&gt;Anthony Platanios&lt;&#x2F;a&gt;. This library
+integrates with native TensorFlow library via &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Java_Native_Interface&quot;&gt;JNI&lt;&#x2F;a&gt;, so no intermediate official&#x2F;non-official Java libraries are used.&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Artificial Neural Network in Scala - part 2</title>
+        <published>2021-02-05T00:00:00+00:00</published>
+        <updated>2021-02-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/ann-in-scala-2/"/>
+        <id>https://novakov-alexey.github.io/ann-in-scala-2/</id>
+        
+        <summary type="html">&lt;p&gt;In this article we are going to implement ANN from scratch in Scala. It is continuation of &lt;a href=&quot;..&#x2F;ann-in-scala-1&quot;&gt;the first article&lt;&#x2F;a&gt;, which describes
+a theory of ANN.&lt;&#x2F;p&gt;
+&lt;p&gt;This implementation will consist of:&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Ammonite Kafka Producer</title>
+        <published>2020-11-29T00:00:00+00:00</published>
+        <updated>2020-11-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/ammonite-kafka/"/>
+        <id>https://novakov-alexey.github.io/ammonite-kafka/</id>
+        
+        <summary type="html">&lt;p&gt;If you need to run a Scala code as a script, i.e. using Scala source file to execute some short code,
+then &lt;a href=&quot;https:&#x2F;&#x2F;ammonite.io&#x2F;#ScalaScripts&quot;&gt;Ammonite Scripts&lt;&#x2F;a&gt;
+may be a solution for you. &lt;a href=&quot;https:&#x2F;&#x2F;ammonite.io&#x2F;#Ammonite&quot;&gt;Ammonite project consists&lt;&#x2F;a&gt; of a REPL, script launcher and a few Scala libraries.&lt;br &#x2F;&gt;
+Let’s write a script to generate JSON data and send it to &lt;a href=&quot;https:&#x2F;&#x2F;kafka.apache.org&#x2F;documentation&#x2F;#quickstart_createtopic&quot;&gt;Apache Kafka topic&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Algorithms: Largest Sum Contiguous Subarray</title>
+        <published>2020-08-13T00:00:00+00:00</published>
+        <updated>2020-08-13T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/algorithms-max-sum-in-array/"/>
+        <id>https://novakov-alexey.github.io/algorithms-max-sum-in-array/</id>
+        
+        <summary type="html">&lt;p&gt;Most of the algorithmic tasks are related to iterating over arrays of data. They often can be expressed as a function which takes some input and returns some single value or an array of values. For instance:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;scala&quot; style=&quot;background-color:#2e3440;color:#d8dee9;&quot; class=&quot;language-scala &quot;&gt;&lt;code class=&quot;language-scala&quot; data-lang=&quot;scala&quot;&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#88c0d0;&quot;&gt;maxSum&lt;&#x2F;span&gt;&lt;span&gt;(a: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Array&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;Int&lt;&#x2F;span&gt;&lt;span&gt;]): &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fbcbb;&quot;&gt;Array&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;Int&lt;&#x2F;span&gt;&lt;span&gt;] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#81a1c1;&quot;&gt;= ???
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>SBT Plugins</title>
+        <published>2020-06-29T00:00:00+00:00</published>
+        <updated>2020-06-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/sbt-plugins/"/>
+        <id>https://novakov-alexey.github.io/sbt-plugins/</id>
+        
+        <summary type="html">&lt;p&gt;SBT is a Scala Build Tool. It is written in Scala and can compile, build artefacts for Scala and Java projects. SBT is also the first build
+tool in the Scala eco-system and the most used one among Scala developers. I am using SBT already for many years and found the following useful plugins which I use in most of my projects:&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Monads in Scala</title>
+        <published>2020-03-28T00:00:00+00:00</published>
+        <updated>2020-03-28T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/scala-monads/"/>
+        <id>https://novakov-alexey.github.io/scala-monads/</id>
+        
+        <summary type="html">&lt;p&gt;Once you start dig deeper into Scala and its suitability for functional programming, you meet Monads. In this blog post, we will explore Monads in Scala:
+their usage and usefulness.&lt;&#x2F;p&gt;
+
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;flatmap-all-the-things.281141774192373c.png&quot; class=&quot;center-image&quot;&#x2F;&gt;
+&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Cats-Effect: Cancel Scala Process on Timeout</title>
+        <published>2020-02-29T00:00:00+00:00</published>
+        <updated>2020-02-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/scala-ce-timeout/"/>
+        <id>https://novakov-alexey.github.io/scala-ce-timeout/</id>
+        
+        <summary type="html">
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;maico-amorim.4a1fab892b675107.jpg&quot; class=&quot;center-image&quot;&#x2F;&gt;
+&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;
+&lt;p&gt;Sometimes Scala developer needs to call external program, which is running outside of the JVM.
+In this case, we use &lt;code&gt;scala.sys.process&lt;&#x2F;code&gt; package. Process package has bunch of functions to spin up new processes,
+consume their outputs and errors. Also, spawned process can be stopped. Usually, we run external programs for a short period
+of time to make some side-effect. Then, we analyse its exit code to apply some error handling logic in our main Scala program.
+It worth to say that process API is blocking execution thread, when we are waiting for its completion. To summarise, Scala
+developer wants to do the following:&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Scala FS2 - handle broken CSV lines</title>
+        <published>2020-02-27T00:00:00+00:00</published>
+        <updated>2020-02-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/scala-fs2/"/>
+        <id>https://novakov-alexey.github.io/scala-fs2/</id>
+        
+        <summary type="html">&lt;p&gt;Recently, I ran into a familiar situation by doing data processing, where I needed to deal with a fragmented data stream. Having fragments, I had to detect manually where exactly new line&#x2F;message starts and where current line&#x2F;message ends in the stream. As turned out, one can aggregate intermediate state of the fragmented stream using scan function.&lt;&#x2F;p&gt;
+&lt;p&gt;Let us dig down into how scan function is working.&lt;&#x2F;p&gt;
+
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;stream-fs2.b83f8034b204fb22.jpg&quot; class=&quot;center-image&quot;&#x2F;&gt;
+&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;</summary>
+        
+    </entry>
+</feed>

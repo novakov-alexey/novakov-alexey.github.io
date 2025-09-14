@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Alexey Novakov Notes - flink</title>
+    <subtitle>Alexey Novakov: Software Engineering Notes</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://novakov-alexey.github.io/categories/flink/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-01-16T00:00:00+00:00</updated>
+    <id>https://novakov-alexey.github.io/categories/flink/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Using Scala 3 with Apache Flink</title>
+        <published>2023-01-16T00:00:00+00:00</published>
+        <updated>2023-01-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/flink-scala3/"/>
+        <id>https://novakov-alexey.github.io/flink-scala3/</id>
+        
+        <summary type="html">&lt;style&gt;
+  .container {    
+    justify-content: center;
+  }
+&lt;&#x2F;style&gt; 
+&lt;div class=&quot;container&quot;&gt;
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;flink_squirrel_500.03d52ccb21792626.png&quot;&#x2F;&gt;
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;scala-logo.613bed630ac81ac4.png&quot;&#x2F;&gt;
+&lt;&#x2F;div&gt;
+&lt;br&#x2F;&gt;
+&lt;p&gt;If you have come here,  then you probably know that current version of Apache Flink 1.16 Scala API still depends
+on Scala 2.12. However, the good news is that previous Flink release 1.15 introduced &lt;a href=&quot;https:&#x2F;&#x2F;flink.apache.org&#x2F;2022&#x2F;02&#x2F;22&#x2F;scala-free.html&quot;&gt;an important change&lt;&#x2F;a&gt;
+for Scala users, which allows us to use own Scala version via Flink Java API. That means users can now use Scala 2.13 or 3 to write Flink jobs.
+Earlier, Flink had Scala 2.12 as a mandatory library on application classpath, so one could not use newer version due to version conflicts.&lt;&#x2F;p&gt;
+
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;flink-github-scala-version.7aa2c5d13967543d.png&quot; class=&quot;center-image&quot;&#x2F;&gt;
+&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;
+&lt;p&gt;Official Flink Scala API will be still available in future, but will probably be deprecated at some point. It is unclear at this point.
+Flink community made a decision to not engage with newer Scala version and make Flink to be Scala-free, in terms of user&#x27;s Scala version choice.
+Whether it is good or bad for Scala users in general we will going to see in near future. Definitely this choice is good, as it unlocks
+Flink for newer Scala versions.&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+</feed>

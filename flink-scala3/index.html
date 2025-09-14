@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#ffffff" name="theme-color" />
+  <meta content="#da532c" name="msapplication-TileColor" />
+
+  
+  
+  
+  
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css"
+    rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <link href='https://novakov-alexey.github.io/site.css' rel="stylesheet" />
+
+  
+  
+
+  <title>
+    
+Alexey Novakov Notes | Using Scala 3 with Apache Flink
+
+  </title>
+
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/201b8d5e05.js"></script>
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-49N5BCWL0F"></script>
+  <script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-49N5BCWL0F");
+  </script>
+  
+</head>
+
+<body class="has-background-white">
+  
+  <nav aria-label="section navigation" class="navbar is-light" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item has-text-weight-bold" href="https:&#x2F;&#x2F;novakov-alexey.github.io">Alexey Novakov Notes</a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navMenu" role="button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end has-text-centered">
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;'>
+            Blog
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;cv'>
+            CV
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;presentations'>
+            Presentations
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;tags'>
+            Tags
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;categories'>
+            Categories
+          </a>
+          
+          <a class="navbar-item" id="nav-search" title="Search" data-target="#search-modal">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </a>
+          <a class="navbar-item" id="dark-mode" title="Switch to dark theme">
+            <span class="icon">
+              <i class="fas fa-adjust"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  
+
+  
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <article class="box">
+          <h1 class="title is-1">
+            Using Scala 3 with Apache Flink
+          </h1>
+          <p class="subtitle"></p>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-8">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="fas fa-user"></i>
+    </span>
+    Alexey Novakov published on
+    <span class="icon">
+      <i class="far fa-calendar-alt"></i>
+    </span>
+    <time datetime='2023-01-16'>January 16, 2023</time>
+  </p>
+
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="far fa-clock"></i>
+    </span>
+    4 min,
+    <span class="icon">
+      <i class="fas fa-pencil-alt"></i>
+    </span>
+    625 words
+  </p>
+
+            </div>
+            <div class="column">
+              
+              
+  <p>
+    <span class="has-text-black has-text-weight-normal">Categories:</span>
+    
+      <a class="link has-text-weight-light" href='https://novakov-alexey.github.io/categories/scala/'>
+        <span class="icon is-small">
+          <i class="fas fa-folder fa-xs"></i>
+        </span>
+        scala
+      </a>
+    
+      <a class="link has-text-weight-light" href='https://novakov-alexey.github.io/categories/flink/'>
+        <span class="icon is-small">
+          <i class="fas fa-folder fa-xs"></i>
+        </span>
+        flink
+      </a>
+    
+  </p>
+
+              
+            </div>
+            <div class="column has-text-right-desktop">
+              
+              
+  <p>
+    <span class="has-text-black has-text-weight-normal">Tags:</span>
+    
+      <a class="link has-text-weight-light" href='https://novakov-alexey.github.io/tags/big-data/'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        big data
+      </a>
+    
+      <a class="link has-text-weight-light" href='https://novakov-alexey.github.io/tags/streaming-data/'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        streaming data
+      </a>
+    
+      <a class="link has-text-weight-light" href='https://novakov-alexey.github.io/tags/scala3/'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        scala3
+      </a>
+    
+  </p>
+
+              
+            </div>
+          </div>
+          <div class="content mt-2 has-text-justified">
+            <style>
+  .container {    
+    justify-content: center;
+  }
+</style> 
+<div class="container">
+
+<img src="https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;processed_images&#x2F;flink_squirrel_500.03d52ccb21792626.png"/>
+
+<img src="https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;processed_images&#x2F;scala-logo.613bed630ac81ac4.png"/>
+</div>
+<br/>
+<p>If you have come here,  then you probably know that current version of Apache Flink 1.16 Scala API still depends
+on Scala 2.12. However, the good news is that previous Flink release 1.15 introduced <a href="https://flink.apache.org/2022/02/22/scala-free.html">an important change</a>
+for Scala users, which allows us to use own Scala version via Flink Java API. That means users can now use Scala 2.13 or 3 to write Flink jobs.
+Earlier, Flink had Scala 2.12 as a mandatory library on application classpath, so one could not use newer version due to version conflicts.</p>
+
+
+<img src="https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;processed_images&#x2F;flink-github-scala-version.7aa2c5d13967543d.png" class="center-image"/>
+<br/><br/>
+<p>Official Flink Scala API will be still available in future, but will probably be deprecated at some point. It is unclear at this point.
+Flink community made a decision to not engage with newer Scala version and make Flink to be Scala-free, in terms of user's Scala version choice.
+Whether it is good or bad for Scala users in general we will going to see in near future. Definitely this choice is good, as it unlocks
+Flink for newer Scala versions.</p>
+<span id="continue-reading"></span>
+<p>For those who wants to use Scala 2.13 or <a href="https://docs.scala-lang.org/scala3/new-in-scala3.html">Scala 3</a> with Flink already today, there are few options available:</p>
+<ul>
+<li><a href="https://github.com/flink-extended/flink-scala-api">flink-scala-api</a> a fork of Flink Scala bindings originally done by Findify</li>
+<li><a href="https://github.com/ariskk/flink4s">Flink4s</a></li>
+</ul>
+<p>Further example in this blog-post is using first option, i.e. <a href="https://github.com/flink-extended/flink-scala-api">flink-scala-api</a>.</p>
+<h1 id="build-job-with-scala-3">Build Job with Scala 3</h1>
+<p>We are going to create custom Flink Docker image, which can run Scala 3 streaming jobs based on Flink 15.2 version.
+Docker and containers are used to easily reproduce this example on any environment, however they are not mandatory for Scala 3 usage in general.</p>
+<p>First, clone <a href="https://github.com/novakov-alexey/flink-sandbox">novakov-alexey/flink-sandbox</a> Git repository, which is using SBT to build an example Flink job.
+So SBT needs to be installed as well. Then package Scala code into self-sufficient (fat) JAR file:</p>
+<pre data-lang="bash" style="background-color:#2e3440;color:#d8dee9;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#88c0d0;">sbt</span><span> assembly
+</span></code></pre>
+<p>After running SBT <code>assembly</code> task, you get a JAR file in the target folder:</p>
+<pre data-lang="bash" style="background-color:#2e3440;color:#d8dee9;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#88c0d0;">ls</span><span> target/scala</span><span style="color:#81a1c1;">*</span><span>/</span><span style="color:#81a1c1;">*</span><span>jar
+</span><span>
+</span><span style="color:#88c0d0;">target/scala-3.1.2/flink-sandbox-assembly-0.1.jar
+</span></code></pre>
+<h1 id="build-image-with-job-included">Build Image with Job included</h1>
+<p>Make a Dockerfile with the following content:</p>
+<pre data-lang="docker" style="background-color:#2e3440;color:#d8dee9;" class="language-docker "><code class="language-docker" data-lang="docker"><span># Dockerfile
+</span><span>
+</span><span>FROM flink:1.15.2
+</span><span>
+</span><span># removing tied Scala 2.12 from the Apache Flink image 
+</span><span>RUN rm $FLINK_HOME/lib/flink-scala_2.12-1.15.2.jar
+</span><span>
+</span><span>RUN mkdir -p $FLINK_HOME/usrlib
+</span><span>COPY ./target/scala-3.1.2/flink-sandbox-*.jar $FLINK_HOME/usrlib/my-flink-job.jar
+</span></code></pre>
+<p>Now let's build a Docker image:</p>
+<pre data-lang="bash" style="background-color:#2e3440;color:#d8dee9;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#88c0d0;">docker</span><span> build -t flink:1.15.2-my-job-scala3 .
+</span></code></pre>
+<h1 id="launch-flink-job">Launch Flink Job</h1>
+<p>Install Flink on the client machine to get Flink CLI around. After Flink installation let's check its version, it should be 1.15.2</p>
+<pre data-lang="bash" style="background-color:#2e3440;color:#d8dee9;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#88c0d0;">flink</span><span> --version
+</span><span>
+</span><span style="color:#88c0d0;">Version:</span><span> 1.15.2, Commit ID: 69e8126
+</span></code></pre>
+<p>Get Kubernetes cluster available in the current shell:</p>
+<pre data-lang="bash" style="background-color:#2e3440;color:#d8dee9;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#88c0d0;">kubectl</span><span> get nodes
+</span><span>
+</span><span style="color:#88c0d0;">NAME</span><span>                   STATUS   ROLES                  AGE   VERSION
+</span><span style="color:#88c0d0;">lima-rancher-desktop</span><span>   Ready    control-plane,master   15d   v1.23.15+k3s1
+</span></code></pre>
+<p>Finally, launch a job:</p>
+<pre data-lang="bash" style="background-color:#2e3440;color:#d8dee9;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#88c0d0;">flink</span><span> run-application -p 3 -t kubernetes-application </span><span style="color:#81a1c1;">\
+</span><span>  -c org.example.fraud.FraudDetectionJob </span><span style="color:#81a1c1;">\
+</span><span>  -Dtaskmanager.numberOfTaskSlots=2 </span><span style="color:#81a1c1;">\
+</span><span>  -Dkubernetes.rest-service.exposed.type=NodePort </span><span style="color:#81a1c1;">\
+</span><span>  -Dkubernetes.cluster-id=fraud-detection </span><span style="color:#81a1c1;">\
+</span><span>  -Dkubernetes.container.image=flink:1.15.2-my-job-scala3 </span><span style="color:#81a1c1;">\
+</span><span>  -Dkubernetes.service-account=flink-service-account </span><span style="color:#81a1c1;">\
+</span><span>  local:///opt/flink/usrlib/my-flink-job.jar
+</span></code></pre>
+<p>Checking the result:</p>
+<pre data-lang="bash" style="background-color:#2e3440;color:#d8dee9;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#88c0d0;">kubectl</span><span> get pod -l app=fraud-detection
+</span><span>
+</span><span style="color:#88c0d0;">NAME</span><span>                               READY   STATUS    RESTARTS   AGE
+</span><span style="color:#88c0d0;">fraud-detection-656b6fcc9c-lhqpl</span><span>   1/1     Running   0          31m
+</span><span style="color:#88c0d0;">fraud-detection-taskmanager-1-2</span><span>    1/1     Running   0          31m
+</span><span style="color:#88c0d0;">fraud-detection-taskmanager-1-1</span><span>    1/1     Running   0          31m
+</span></code></pre>
+<h1 id="summary">Summary</h1>
+<p>Starting Flink 1.15, it is no longer tightly coupled to Scala, so that one can remove Scala dependency to Scala 2.12 and use newer version.
+Depends on situation, user can add own Scala version as part of Docker image build or just pack it inside the Flink job fat-JAR file.</p>
+<p>How long the official Flink Scala API with version of Scala 2.12 will remain available in future releases? And what will happen with it.
+In order to answer this question you should keep an eye on <a href="https://flink.apache.org/community.html">Flink communication channels</a>
+like Slack, Jira and mailing lists.</p>
+<p>Even it is going to be removed, users can safely use <a href="https://github.com/flink-extended/flink-scala-api">flink-scala-api</a> from Flink Extended
+organization. As one of the maintainer, I can guarantee it will be up to date in the future.</p>
+<h1 id="links">Links</h1>
+<p><a href="https://issues.apache.org/jira/browse/FLINK-13414">FLINK-13414 - Add Support for Scala 2.13</a></p>
+
+          </div>
+          <div class="container has-text-centered">
+            
+  <p class="is-size-5">
+    Share:
+    <a class="link" data-sharer="facebook" data-url='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;flink-scala3&#x2F;' href="javascript:void(0);" title="Share on facebook">
+      <span class="icon">
+        <i class="fab fa-facebook-square"></i>
+      </span>
+    </a>
+    <a class="link" data-sharer="twitter" data-title='Using Scala 3 with Apache Flink' data-url='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;flink-scala3&#x2F;' href="javascript:void(0);" title="Share on twitter">
+      <span class="icon">
+        <i class="fab fa-twitter"></i>
+      </span>
+    </a>
+    <a class="link" data-sharer="linkedin" data-url='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;flink-scala3&#x2F;' href="javascript:void(0);" title="Share on linkedin">
+      <span class="icon">
+        <i class="fab fa-linkedin"></i>
+      </span>
+    </a>
+    <a class="link" data-sharer="reddit" data-url='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;flink-scala3&#x2F;' href="javascript:void(0);" title="Share on reddit">
+      <span class="icon">
+        <i class="fab fa-reddit"></i>
+      </span>
+    </a>
+    <a class="link" data-sharer="hackernews" data-title="Using Scala 3 with Apache Flink" data-url='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;flink-scala3&#x2F;' href="javascript:void(0);" title="Share on hackernews">
+      <span class="icon">
+        <i class="fab fa-hacker-news"></i>
+      </span>
+    </a>
+    <a class="link" data-sharer="whatsapp" data-title="Using Scala 3 with Apache Flink" data-url='https:&#x2F;&#x2F;novakov-alexey.github.io&#x2F;flink-scala3&#x2F;' href="javascript:void(0);" title="Share on whatsapp">
+      <span class="icon">
+        <i class="fab fa-whatsapp-square"></i>
+      </span>
+    </a>
+  </p>
+
+          </div>
+        </article>
+      </div>
+      
+      <div class="column is-2 is-hidden-mobile">
+        <aside class="menu" style="position: sticky; top: 48px">
+          <p class="heading has-text-weight-bold">Contents</p>
+          <ul class="menu-list">
+            
+            <li>
+              <a id="link-build-job-with-scala-3" class="toc is-size-7 is-active" href="https://novakov-alexey.github.io/flink-scala3/#build-job-with-scala-3">
+                Build Job with Scala 3
+              </a>
+              
+            </li>
+            
+            <li>
+              <a id="link-build-image-with-job-included" class="toc is-size-7 " href="https://novakov-alexey.github.io/flink-scala3/#build-image-with-job-included">
+                Build Image with Job included
+              </a>
+              
+            </li>
+            
+            <li>
+              <a id="link-launch-flink-job" class="toc is-size-7 " href="https://novakov-alexey.github.io/flink-scala3/#launch-flink-job">
+                Launch Flink Job
+              </a>
+              
+            </li>
+            
+            <li>
+              <a id="link-summary" class="toc is-size-7 " href="https://novakov-alexey.github.io/flink-scala3/#summary">
+                Summary
+              </a>
+              
+            </li>
+            
+            <li>
+              <a id="link-links" class="toc is-size-7 " href="https://novakov-alexey.github.io/flink-scala3/#links">
+                Links
+              </a>
+              
+            </li>
+            
+          </ul>
+        </aside>
+      </div>
+      
+    </div>
+  </div>
+</section>
+  
+
+
+  
+  <section class="modal" id="search-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="field">
+        <p class="control has-icons-right">
+          <input class="input" id="search" placeholder="Search this website." type="search" />
+          <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+      <div class="search-results">
+        <div class="search-results__items"></div>
+      </div>
+    </div>
+    <button aria-label="close" class="modal-close is-large"></button>
+  </section>
+  
+
+
+  
+
+
+
+  
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <div id="disqus_thread"></div>
+      </div>
+    </div>
+  </div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {      
+      this.page.url = 'https://novakov-alexey.github.io/flink-scala3/';  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = 'flink-scala3'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://novakov-alexey-blog.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+  
+  <footer class="py-4 has-background-light">
+    <p class="has-text-centered">
+      Built with
+      <span class="icon is-small">
+        <i class="fas fa-code fa-xs"></i>
+      </span>
+      code and
+      <span class="icon is-small">
+        <i class="fas fa-heart fa-xs"></i>
+      </span>
+      love <br /> Powered By
+      <span class="icon is-small">
+        <i class="fas fa-power-off fa-xs"></i>
+      </span>
+      Zola
+    </p>
+  </footer>
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+  <script src='https://novakov-alexey.github.io/search_index.en.js'></script>
+  <script src='https://novakov-alexey.github.io/js/site.js'></script>
+
+  
+
+<script type="text/javascript">
+  const menuBarHeight = $("nav.navbar").height();
+  const tocItems = $('.toc');
+  const navSections = new Array($('.toc').length);
+
+  tocItems.each(function (i) {
+    let id = $(this).attr("id").substring(5);
+    navSections[i] = document.getElementById(id);
+  })
+
+  function isVisible(tocIndex) {
+    const current = navSections[tocIndex];
+    const next = tocIndex < tocItems.length - 1 ? navSections[tocIndex+1] : $("section.section").get(1);
+    
+    const c = current.getBoundingClientRect();
+    const n = next.getBoundingClientRect();
+    const h = (window.innerHeight || document.documentElement.clientHeight);
+
+    return (c.top <= h) && (c.top + (n.top - c.top) - menuBarHeight >= 0);
+  }
+
+  function activateIfVisible() {
+    for (b = true, i = 0; i < tocItems.length; i++) {
+      if (b && isVisible(i)) {
+        tocItems[i].classList.add('is-active');
+        b = false;
+      } else
+        tocItems[i].classList.remove('is-active');
+    }
+  }
+
+  var isTicking = null;
+  window.addEventListener('scroll', () => {
+    if (!isTicking) {
+      window.requestAnimationFrame(() => {
+        activateIfVisible();
+        isTicking = false;
+      });
+      isTicking = true;
+    }
+  }, false);
+</script>
+
+
+
+
+</body>
+
+</html>

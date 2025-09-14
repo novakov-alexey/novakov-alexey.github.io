@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Alexey Novakov Notes - big data</title>
+    <subtitle>Alexey Novakov: Software Engineering Notes</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://novakov-alexey.github.io/categories/big-data/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2022-10-07T00:00:00+00:00</updated>
+    <id>https://novakov-alexey.github.io/categories/big-data/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Spark API Languages</title>
+        <published>2022-10-07T00:00:00+00:00</published>
+        <updated>2022-10-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://novakov-alexey.github.io/spark-api/"/>
+        <id>https://novakov-alexey.github.io/spark-api/</id>
+        
+        <summary type="html">
+
+&lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;novakov-alexey.github.io&amp;#x2F;processed_images&amp;#x2F;spark_logo.36e55ffdad136564.jpg&quot; class=&quot;center-image&quot;&#x2F;&gt;
+&lt;br&#x2F;&gt;&lt;br&#x2F;&gt;&lt;h1 id=&quot;context&quot;&gt;Context&lt;&#x2F;h1&gt;
+&lt;p&gt;As part of my role of Data Architect at work, I often deal with AWS data services to run Apache Spark jobs such as EMR and Glue ETL. At the very beginning team needed to choose Spark supported programming language and start writing our main jobs for data processing.&lt;&#x2F;p&gt;
+&lt;p&gt;Before we further dive into the languages choice, let&#x27;s quickly remind what is Spark for EMR. Glue ETL is going to be skipped from the blog-post.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;spark&quot;&gt;Apache Spark&lt;&#x2F;a&gt; is one of the main component of &lt;a href=&quot;https:&#x2F;&#x2F;aws.amazon.com&#x2F;emr&#x2F;&quot;&gt;AWS EMR&lt;&#x2F;a&gt;, which makes EMR still meaningful service to be used by Big Data teams. AWS EMR team is building its own Spark distribution to integrate it with other EMR applications seamlessly. Even though Amazon builds own Spark, they keep the same Spark version, which is equal to open source version of Spark. All features of Apache Spark are available in EMR Spark. EMR allows to run a Spark application in EMR cluster via step type called “Spark Application”.&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+</feed>
