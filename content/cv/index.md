@@ -65,8 +65,8 @@ _Nov 2022 – present_
     </tr>
     <tr>
         <td align="left">Responsibilities</td>                
-        <td align="left">design and support streaming data processing architecture, review client architecture, technical consulting, pre-sale activities, conference speaking, 
-        work with product team on giving feature requests and feature and release testing</td>        
+        <td align="left">design and support streaming data processing architecture, review client architecture/code, technical consulting, pre-sale activities, conference speaking, 
+        work with product team on new feature requests and release testing</td>        
     </tr>
     <tr>
         <td align="left">Technologies</td>
@@ -402,7 +402,7 @@ _Jan 2007 – May 2007_
     </tr>
     <tr>
         <td align="left">Programming languages, technologies</td>
-        <td align="left">Scala, Java, Rust, JavaFX, JSTL, SQL, XSL, PHP</td>        
+        <td align="left">Scala, Java, Rust, SQL, Python, PHP</td>        
     </tr>
     <tr>
         <td align="left">Web</td>

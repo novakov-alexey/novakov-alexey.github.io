@@ -10,6 +10,10 @@ toc_disabled=true
 
 {{ resize_image(path="presentations/images/bob-berlin-alexey.jpg", width=600, height=600, op="fit") }}
 
+## 2025
+
+- 31.08.2025 JVM Day 2025: Особенности разработки Flink джобов на Scala [Slides](https://speakerdeck.com/alexeyn/osobiennosti-razrabotki-flink-dzhobov-na-scala)
+
 ## 2024
 - 22.11.2024 BigData Europe 2024: Streamhouse Architecture with Flink and Paimon [Slides](https://speakerdeck.com/alexeyn/streamhouse-architecture-with-flink-and-paimon)
 - 21.10.2024 Flink Forward 2024: Deep Dive - Bridging Data Silos with Flink CDC [Announce](https://www.flink-forward.org/berlin-2024/agenda#bridging-data-silos-with-flink-cdc)
