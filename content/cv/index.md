@@ -29,7 +29,7 @@ Software Solution Architect, Senior Software Engineer, Conference and Meetup Spe
 
 **Education:** Specialist in Computer Science 2003-2008, Donetsk State University of Informatics and Artificial intelligence, Ukraine
 
-**Summary:** 18 years of hands-on experience in the field of Software Development, Architecture, System integration,
+**Summary:** 19 years of hands-on experience in the field of Software Development, Architecture, System integration,
 FP & OO programming, Designing and Prototyping, Database designing and Specification creating.
 
 _Development practice:_
@@ -52,9 +52,32 @@ _Domain knowledge:_
 ---
 
 ## Work Experience
+
+**Data Engineer / Architect, Germany**
+
+_May 2025 – present_
+
+ <table align="left">
+    <tr>
+        <td align="left">Company</td>
+        <td align="left">
+        Self-Employed Contractor  
+        </td>        
+    </tr>
+    <tr>
+        <td align="left">Responsibilities</td>                
+        <td align="left">engineering, development of new and existing data-driven use cases as part of the different engineering teams</td>        
+    </tr>
+    <tr>
+        <td align="left">Technologies</td>
+        <td align="left">Apache Spark, Apache Flink, Kubernetes, HDFS, S3, Scala (Cats, Akka, http4s), Java, SQL, Python, Kafka, Airflow, Prometheus, PostgreSQL</td>        
+    </tr>
+</table>  
+&nbsp;   
+
 **Solution Architect in Ververica, Germany**
 
-_Nov 2022 – present_
+_Nov 2022 – Apr 2025_
 
  <table align="left">
     <tr>
